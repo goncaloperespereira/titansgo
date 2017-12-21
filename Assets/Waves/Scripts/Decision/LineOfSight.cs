@@ -29,8 +29,11 @@ public class LineOfSight : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.layer != gameObject.transform.parent.gameObject.layer) {
-			collidersInside.Add (other);
-			setChanged = true;
+			MovingObjectStats stats = other.GetComponent<MovingObjectStats> ();
+			if (stats != null) {
+				collidersInside.Add (other);
+				setChanged = true;
+			}
 		}
 	}
 
