@@ -8586,9 +8586,9 @@ MonoBehaviour:
   m_OfflineScene: 
   m_OnlineScene: 
   m_SpawnPrefabs:
-  - {fileID: 0}
+  - {fileID: 1950828454024732, guid: bea3048a4dc0142e0bbf6f1154588abc, type: 2}
   - {fileID: 1000013999444602, guid: c92190a5e4e5743a09c69f28aa3b3089, type: 2}
-  - {fileID: 0}
+  - {fileID: 1358443513811060, guid: c622ec018b1164ba1b0e3ac2ca69592b, type: 2}
   - {fileID: 1358443513811060, guid: cfc92b2e3d11a42e2930a923b3f8cd13, type: 2}
   - {fileID: 1261596589980050, guid: be2025a22fddf433699a9fca95168189, type: 2}
   - {fileID: 0}
@@ -8635,7 +8635,7 @@ MonoBehaviour:
     m_MaxTimerTimeout: 12000
     m_MinNetSimulatorTimeout: 1
     m_MaxNetSimulatorTimeout: 12000
-  m_Channels: 
+  m_Channels: 0500000000000000
   m_UseWebSockets: 0
   m_UseSimulator: 0
   m_SimulatedLatency: 1
@@ -9098,11 +9098,11 @@ GameObject:
   - component: {fileID: 1669411450}
   m_Layer: 8
   m_Name: Spawn Position 2
-  m_TagString: Untagged
+  m_TagString: spawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1669411450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12031,7 +12031,7 @@ GameObject:
   - component: {fileID: 2069630733}
   m_Layer: 9
   m_Name: Spawn Position 1
-  m_TagString: Untagged
+  m_TagString: spawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -91,16 +91,23 @@ public class Health : NetworkBehaviour
 	[ClientRpc]
 	void RpcRespawn()
 	{
+		Vector3 spawnPoint = Vector3.zero;
+
 		if (isLocalPlayer)
 		{
-			Vector3 spawnPoint = Vector3.zero;
-
-			if(spawnPoints != null && spawnPoints.Length > 0)	
+			if (gameObject.layer == 8)
 			{
-				spawnPoint = spawnPoints [Random.Range (0, spawnPoints.Length)].transform.position;
+				spawnPoint = spawnPoints [0].transform.position;
+				transform.position = spawnPoint;
 			}
 
-			transform.position = spawnPoint;
+			if (gameObject.layer == 9)
+			{
+				spawnPoint = spawnPoints [1].transform.position;
+				transform.position = spawnPoint;
+			}
+				
 		}
+			
 	}
 }

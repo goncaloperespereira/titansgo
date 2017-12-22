@@ -267,7 +267,7 @@ MonoBehaviour:
     i14: 205
     i15: 19
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114436906043560656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -435,7 +435,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAITick: 3
-  positionOffset: {x: 0, y: 0}
   spawner: {fileID: 0}
 --- !u!212 &212440708285700274
 SpriteRenderer:

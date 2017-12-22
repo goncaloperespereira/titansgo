@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/BlackOps/BlackOps2D/Scenes/MainMenu.unity
     guid: e4c72c20406274ca9ba6124565e8da95
   - enabled: 1

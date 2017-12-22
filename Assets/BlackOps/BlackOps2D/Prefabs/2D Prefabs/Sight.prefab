@@ -68,3 +68,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsInSight: []
+  radius: 0
