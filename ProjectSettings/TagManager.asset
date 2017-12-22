@@ -11,6 +11,7 @@ TagManager:
   - Golem_1
   - Golem_2
   - Referencial
+  - spawnPoint
   layers:
   - Default
   - TransparentFX

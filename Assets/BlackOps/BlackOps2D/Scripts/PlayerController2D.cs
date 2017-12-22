@@ -48,6 +48,20 @@ public class PlayerController2D : NetworkBehaviour
 
 	public GameObject touchTarget;
 
+	void Awake()	
+	{
+		GameObject[] spawnPoint = GameObject.FindGameObjectsWithTag ("spawnPoint");
+		var distance = Vector3.Distance(transform.position, spawnPoint[0].transform.position);
+		if (distance < 1)
+		{
+			gameObject.layer = spawnPoint [0].layer;		
+		}
+		else		
+		{
+			gameObject.layer = spawnPoint [1].layer;		
+		}
+	}
+
 	private void Start()
 	{
 		targetPos = transform.position;
