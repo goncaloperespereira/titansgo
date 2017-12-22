@@ -1,21 +1,21 @@
 fileFormatVersion: 2
-guid: 9229ca9fe8d1540b08ffc6028d4e335d
-timeCreated: 1513251426
+guid: ca1bfabf123504e668698e1fa89e3716
+timeCreated: 1513946475
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: creep_0
-    21300002: creep_1
-    21300004: creep_2
-    21300006: creep_3
-    21300008: creep_4
-    21300010: creep_5
-    21300012: creep_6
-    21300014: creep_7
-    21300016: creep_8
-    21300018: creep_9
-    21300020: creep_10
-    21300022: creep_11
+    21300000: creep 1_0
+    21300002: creep 1_1
+    21300004: creep 1_2
+    21300006: creep 1_3
+    21300008: creep 1_4
+    21300010: creep 1_5
+    21300012: creep 1_6
+    21300014: creep 1_7
+    21300016: creep 1_8
+    21300018: creep 1_9
+    21300020: creep 1_10
+    21300022: creep 1_11
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -103,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: creep_0
+      name: creep 1_0
       rect:
         serializedVersion: 2
         x: 1
@@ -117,7 +117,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: creep_1
+      name: creep 1_1
       rect:
         serializedVersion: 2
         x: 26
@@ -131,7 +131,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: creep_2
+      name: creep 1_2
       rect:
         serializedVersion: 2
         x: 51
@@ -145,7 +145,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: creep_3
+      name: creep 1_3
       rect:
         serializedVersion: 2
         x: 1
@@ -159,7 +159,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: creep_4
+      name: creep 1_4
       rect:
         serializedVersion: 2
         x: 26
@@ -173,7 +173,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: creep_5
+      name: creep 1_5
       rect:
         serializedVersion: 2
         x: 51
@@ -187,7 +187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: creep_6
+      name: creep 1_6
       rect:
         serializedVersion: 2
         x: 5
@@ -201,7 +201,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: creep_7
+      name: creep 1_7
       rect:
         serializedVersion: 2
         x: 29
@@ -215,7 +215,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: creep_8
+      name: creep 1_8
       rect:
         serializedVersion: 2
         x: 56
@@ -229,7 +229,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: creep_9
+      name: creep 1_9
       rect:
         serializedVersion: 2
         x: 4
@@ -243,7 +243,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: creep_10
+      name: creep 1_10
       rect:
         serializedVersion: 2
         x: 29
@@ -257,7 +257,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: creep_11
+      name: creep 1_11
       rect:
         serializedVersion: 2
         x: 54

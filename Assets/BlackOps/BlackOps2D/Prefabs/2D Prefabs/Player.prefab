@@ -54,6 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4186769943494734}
   - component: {fileID: 61613383953745750}
+  - component: {fileID: 114606003601963036}
   m_Layer: 13
   m_Name: Player_hoparea
   m_TagString: Player
@@ -394,6 +395,18 @@ MonoBehaviour:
   healthBar: {fileID: 224618452552593744}
   destroyOnDeath: 0
   Player: {fileID: 1805675129168990}
+--- !u!114 &114606003601963036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1738697539670364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2a60d196ad44e15b69baf5ada3fb1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1805675129168990}
 --- !u!114 &114630953560059632
 MonoBehaviour:
   m_ObjectHideFlags: 1

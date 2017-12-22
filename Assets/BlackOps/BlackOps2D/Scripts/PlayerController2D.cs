@@ -378,7 +378,7 @@ public class PlayerController2D : NetworkBehaviour
 	}
 
 
-	public void OnTriggerEnter2D (Collider2D other)
+	/*public void OnTriggerEnter2D (Collider2D other)
 	{
 		if(other.name == "Golem_hoparea" && other.gameObject.layer == this.gameObject.layer && gameObject.tag == "Player")	
 		{
@@ -427,7 +427,7 @@ public class PlayerController2D : NetworkBehaviour
 
 		}
 
-	}
+	}*/
 		
 }
 	

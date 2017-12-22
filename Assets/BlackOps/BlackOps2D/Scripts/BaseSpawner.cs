@@ -27,15 +27,14 @@ public class BaseSpawner : NetworkBehaviour
 	public override void OnStartServer()
 	{
 
-		for (int i = 0; i < numberOfBases; i++)
-		{
-				var spawnPosition = new Vector3 (0.0f, -45.0f , 0.0f);
-				var spawnRotation = Quaternion.Euler (0.0f, Random.Range (0, 0), 0.0f);
+		var spawnRotation = Quaternion.identity;
 
-				var playerBase = (GameObject)Instantiate (basePrefab, spawnPosition, spawnRotation);
-				NetworkServer.Spawn (playerBase);
-		}
-			
+		var playerBase = (GameObject)Instantiate (basePrefab, gameObject.transform.position, spawnRotation);
+		playerBase.layer = gameObject.layer;
+		playerBase.tag = gameObject.tag;
+		NetworkServer.Spawn (playerBase);
+
+		Destroy (gameObject);
 
 	}
 		
