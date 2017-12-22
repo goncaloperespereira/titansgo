@@ -80,9 +80,6 @@ public class FollowGameObjectRequest : MoveRequest{
 
 
 	public bool IsInRange() {
-		//Vector3 delta = targetObject.transform.position - moveAI.gameObject.transform.position;
-		//return delta.sqrMagnitude < squaredMinDistance;
-
 		return DistanceToObject () < (minDistance + targetObjectRadius);
 	}
 

@@ -24,11 +24,15 @@ public abstract class MoveAI : MonoBehaviour {
 	}
 
 	public void SetMovementTarget(Vector2 target) {
-		movement.SetMovementTarget (target);
+		if (movement != null) {
+			movement.SetMovementTarget (target);
+		}
 	}
 
 	public void ResetMovementTarget() {
-		movement.ResetMovementTarget ();
+		if (movement != null) {
+			movement.ResetMovementTarget ();
+		}
 	}
 
 	public abstract MoveRequest GetRequest ();

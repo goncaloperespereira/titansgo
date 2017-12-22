@@ -23,7 +23,7 @@ public class AttackRequest : AIRequest{
 		if (MovingObjectStats.IsInAttackCooldown(attackAI.gameObject)) {
 			return;
 		} else {
-			Debug.Log (attackAI.gameObject.name + " Attack");
+			//Debug.Log (attackAI.gameObject.name + " Attack");
 
 			attackFinishTimestamp = Time.time + MovingObjectStats.GetAttackActionTimeForObject (attackAI.gameObject);
 			MovingObjectStats.StartAttackColldownForObject(attackAI.gameObject);

@@ -21,11 +21,15 @@ public class LineOfSight : MonoBehaviour {
 
 	void Update () {
 		if (setChanged) {
-			objectsInSight = new GameObject[collidersInside.Count];
-			int i = 0;
-			foreach(Collider2D collider in collidersInside) {
-				objectsInSight [i] = collider.gameObject;
-				i++;
+			try{
+				objectsInSight = new GameObject[collidersInside.Count];
+				int i = 0;
+				foreach(Collider2D collider in collidersInside) {
+					objectsInSight [i] = collider.gameObject;
+					i++;
+				}
+			} catch(System.Exception e) {
+				collidersInside.Clear ();
 			}
 		} else {
 			setChanged = false;
