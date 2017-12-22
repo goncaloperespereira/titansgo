@@ -7,10 +7,10 @@ using UnityEngine.Networking;
 public class Health : NetworkBehaviour 
 {
 
-	public const int maxHealth = 100;
+	//public const int maxHealth = 100;
 
 	[SyncVar(hook = "OnChangeHealth")]
-	public int currentHealth = maxHealth;
+	public int currentHealth;
 
 	public RectTransform healthBar;
 
@@ -23,6 +23,8 @@ public class Health : NetworkBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		currentHealth = MovingObjectStats.GetMaxHealthForObject (gameObject);
+
 		if(isLocalPlayer)	
 		{
 			spawnPoints = FindObjectsOfType<NetworkStartPosition> ();
@@ -35,21 +37,21 @@ public class Health : NetworkBehaviour
 		if(currentHealth <= 0 && this.gameObject.tag == "Golem_1")
 		{
 			Player.GetComponent<PlayerController2D> ().canHopGolem1 = false;
-			Destroy (gameObject);
+			Helpers.DestroyObject (gameObject);
 
 		}
 
 		if(currentHealth <= 0 && this.gameObject.tag == "Golem_2")
 		{
 			Player.GetComponent<PlayerController2D> ().canHopGolem2 = false;
-			Destroy (gameObject);
+			Helpers.DestroyObject (gameObject);
 		}
 	}
 
-	public void TakeDamage (int amount) 
+	public bool TakeDamage (int amount) 
 	{
 		if(!isServer)
-			return;
+			return false;
 		
 		//Reduce Health by the amount of damage
 		currentHealth -= amount;
@@ -59,17 +61,18 @@ public class Health : NetworkBehaviour
 
 			if(destroyOnDeath)
 			{
-				Destroy (gameObject);
+				Helpers.DestroyObject (gameObject);
 			}
 
 			else
-			
+
 			{
-				currentHealth = maxHealth;
+				currentHealth = MovingObjectStats.GetMaxHealthForObject (gameObject);
 
 				RpcRespawn ();
 			}
 
+			return true;
 		}
 
 		if(currentHealth <= 0 && this.gameObject.tag == "Player_Combined")
@@ -77,7 +80,7 @@ public class Health : NetworkBehaviour
 			
 			if(destroyOnDeath)
 			{
-				Destroy (gameObject);
+				Helpers.DestroyObject (gameObject);
 			}
 
 			else
@@ -85,10 +88,9 @@ public class Health : NetworkBehaviour
 			{
 
 				this.gameObject.GetComponent<PlayerController2D> ().CmdHop ();
-
 				//RpcRespawn ();
 			}
-
+			return true;
 		}
 
 		if(currentHealth <= 0 && this.gameObject.tag == "Golem_1")
@@ -96,17 +98,17 @@ public class Health : NetworkBehaviour
 
 			if(destroyOnDeath)
 			{
-				Destroy (gameObject);
+				Helpers.DestroyObject (gameObject);
 			}
 
 			else
 
 			{
-				currentHealth = maxHealth;
+				currentHealth = MovingObjectStats.GetMaxHealthForObject (gameObject);
 
 				//RpcRespawn ();
 			}
-
+			return true;
 		}
 
 		if(currentHealth <= 0 && this.gameObject.tag == "Golem_2")
@@ -114,18 +116,21 @@ public class Health : NetworkBehaviour
 
 			if(destroyOnDeath)
 			{
-				Destroy (gameObject);
+				Helpers.DestroyObject (gameObject);
 			}
 
 			else
 
 			{
-				currentHealth = maxHealth;
+				currentHealth = MovingObjectStats.GetMaxHealthForObject (gameObject);
 
 				//RpcRespawn ();
 			}
 
+			return true;
 		}
+
+		return false;
 
 	}
 

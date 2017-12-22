@@ -22,7 +22,7 @@ public class AttackRequest : AIRequest{
 		if (MovingObjectStats.IsInAttackCooldown(attackAI.gameObject)) {
 			return;
 		} else {
-			//Debug.Log (attackAI.gameObject.name + " Attack");
+			Debug.Log (attackAI.gameObject.name + " Attack");
 
 			attackFinishTimestamp = Time.time + MovingObjectStats.GetAttackActionTimeForObject (attackAI.gameObject);
 			MovingObjectStats.StartAttackColldownForObject(attackAI.gameObject);
@@ -72,13 +72,13 @@ public class AttackRequest : AIRequest{
 
 public class AttackAI : MonoBehaviour {
 
-	private Attack attack;
+	//private Attack attack;
 	private EvaluateVisibleObjects visibleObjectsPrioritiser;
 
 	// Use this for initialization
 	protected virtual void Start () {
-		attack = GetComponent<Attack> ();
-		Debug.Assert (attack != null, "AttackAI needs an Attack component");
+		//attack = GetComponent<Attack> ();
+		//Debug.Assert (attack != null, "AttackAI needs an Attack component");
 
 		visibleObjectsPrioritiser = GetComponent<EvaluateVisibleObjects> ();
 

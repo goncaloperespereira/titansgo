@@ -4,17 +4,17 @@ using System.Collections;
 public class MovingObjectStats : MonoBehaviour {
 
 	public float priority = 1; // lowest is more important
-	public float maxHealth = 100;
+	public int maxHealth = 100;
 	public float attackActionTime = 0.5f;
 	public float attackCooldown = 2.0f;
-	public float attackDamage = 30;
+	public int attackDamage = 30;
 	public float movementVelocity = 3;
 	public float timeBetweenAttackStartAndDamageIsDelt = 0.3f;
 	public float attackRange = 1;
 
-	public float health;
+	//public float health;
 	void Start() {
-		health = maxHealth;
+		//health = maxHealth;
 	}
 
 
@@ -45,13 +45,13 @@ public class MovingObjectStats : MonoBehaviour {
 		return 1.0f;
 	}
 
-	public static float GetAttackDamageForObject(GameObject obj) {
+	public static int GetAttackDamageForObject(GameObject obj) {
 		MovingObjectStats objectStats = obj.GetComponent<MovingObjectStats> ();
 		if (objectStats != null) {
 			return objectStats.attackDamage;
 		} 
 
-		return 1.0f;
+		return 1;
 	}
 
 	public static float GetMovementVelocityForObject(GameObject obj) {
@@ -61,6 +61,15 @@ public class MovingObjectStats : MonoBehaviour {
 		} 
 
 		return 1.0f;
+	}
+
+	public static int GetMaxHealthForObject(GameObject obj) {
+		MovingObjectStats objectStats = obj.GetComponent<MovingObjectStats> ();
+		if (objectStats != null) {
+			return objectStats.maxHealth;
+		} 
+
+		return 100;
 	}
 
 	// attack cooldown
@@ -82,19 +91,19 @@ public class MovingObjectStats : MonoBehaviour {
 	}
 
 	// health
-	public static float GetHealthForObject(GameObject obj) {
-		MovingObjectStats objectStats = obj.GetComponent<MovingObjectStats> ();
-		if (objectStats != null) {
-			return objectStats.health;
+	public static int GetHealthForObject(GameObject obj) {
+		Health h = obj.GetComponent<Health> ();
+		if (h != null) {
+			return h.currentHealth;
 		} 
 
-		return -1.0f;
+		return 0;
 	}
 
 	public static bool DealDamageFromObjectToObject(GameObject attackingObject, GameObject damagedObject) {
 		MovingObjectStats damagedObj = damagedObject.GetComponent<MovingObjectStats> ();
 		if (damagedObj != null) {
-			float damage = MovingObjectStats.GetAttackDamageForObject(attackingObject);
+			int damage = MovingObjectStats.GetAttackDamageForObject(attackingObject);
 			return damagedObj.DealDamage (damage);
 		}
 
@@ -102,22 +111,28 @@ public class MovingObjectStats : MonoBehaviour {
 	}
 
 	public static bool IsObjectAlive(GameObject obj) {
-		MovingObjectStats objectStats = obj.GetComponent<MovingObjectStats> ();
-		if (objectStats != null) {
-			return objectStats.health > 0;
+		Health h = obj.GetComponent<Health> ();
+		if (h != null) {
+			return h.currentHealth > 0;
 		} 
 
-		return true; // if the object is not alive, then is should be considered as a target anyway
+		return true; // if the object is not alive, then it should be considered as a target anyway
 	}
 
-	public bool DealDamage(float damage) {
-		health -= damage;
+	public bool DealDamage(int damage) {
+		Health h = gameObject.GetComponent<Health> ();
+		if (h) {
+			h.TakeDamage (damage);
+
+		}
+		return false;
+		/*health -= damage;
 		if (health <= 0.0f) {
 			health = 0.0f;
 			//Debug.Log ("Object Destoyed " + this.name);
 			Helpers.DestroyObject (this.gameObject);
 			return true;
-		}
+		}*/
 
 		return false;
 	}

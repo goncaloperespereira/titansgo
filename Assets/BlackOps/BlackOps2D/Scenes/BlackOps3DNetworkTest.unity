@@ -1011,9 +1011,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 1000013999444602, guid: c92190a5e4e5743a09c69f28aa3b3089,
     type: 2}
-  totalObjectsInWave: 4
+  totalObjectsInWave: 0
   timeBetweenSpawn: 0.2
-  timeBetweenWave: 5
+  timeBetweenWave: 5000000
   lane1:
   - {fileID: 938896182}
   - {fileID: 438253455}
@@ -2666,7 +2666,7 @@ MonoBehaviour:
   m_OfflineScene: 
   m_OnlineScene: 
   m_SpawnPrefabs:
-  - {fileID: 1833643820871158, guid: 152dde84b080a4447b858af52dec0250, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 1913007594750864, guid: 5b016bbce1d00478abbe73807e3af340, type: 2}
   - {fileID: 1358443513811060, guid: cfc92b2e3d11a42e2930a923b3f8cd13, type: 2}
