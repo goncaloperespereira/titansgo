@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013999444602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -85.63737, y: -32.32822, z: 0}
+  m_LocalPosition: {x: -71.563835, y: -38.620197, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000013738416806}
@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAITick: 0.2
+  positionOffset: {x: 0, y: 0}
   spawner: {fileID: 0}
 --- !u!114 &114000012215246498
 MonoBehaviour:
@@ -395,9 +396,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 224075839103865784}
   destroyOnDeath: 1
-  Player: {fileID: 1738697539670364, guid: 1d236ea52db394f13b569b747368ad11, type: 2}
+  Player: {fileID: 1805675129168990, guid: 1d236ea52db394f13b569b747368ad11, type: 2}
 --- !u!114 &114648216238888634
 MonoBehaviour:
   m_ObjectHideFlags: 1
