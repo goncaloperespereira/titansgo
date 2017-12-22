@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
-public class MovingObjectStats : MonoBehaviour {
+public class MovingObjectStats : NetworkBehaviour {
 
 	public float priority = 1; // lowest is more important
 	public int maxHealth = 100;

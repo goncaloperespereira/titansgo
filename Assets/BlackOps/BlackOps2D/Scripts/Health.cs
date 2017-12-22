@@ -47,7 +47,7 @@ public class Health : NetworkBehaviour
 			Helpers.DestroyObject (gameObject);
 		}
 	}
-
+		
 	public bool TakeDamage (int amount) 
 	{
 		if(!isServer)

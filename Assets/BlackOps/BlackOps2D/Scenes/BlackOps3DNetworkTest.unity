@@ -1011,9 +1011,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 1000013999444602, guid: c92190a5e4e5743a09c69f28aa3b3089,
     type: 2}
-  totalObjectsInWave: 0
+  totalObjectsInWave: 4
   timeBetweenSpawn: 0.2
-  timeBetweenWave: 5000000
+  timeBetweenWave: 5
   lane1:
   - {fileID: 938896182}
   - {fileID: 438253455}

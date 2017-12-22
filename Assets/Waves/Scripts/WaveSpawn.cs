@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.Networking;
+using System.Collections;
 
 public class WaveSpawn : NetworkBehaviour {
 	public GameObject objectToSpawn;
@@ -20,7 +20,6 @@ public class WaveSpawn : NetworkBehaviour {
 		while (true) {
 			for (int i = 0; i < totalObjectsInWave; i++) {
 				yield return new WaitForSeconds (timeBetweenSpawn);
-
 				GameObject clone = Instantiate (objectToSpawn, gameObject.transform.position, Quaternion.identity) as GameObject;
 				clone.layer = gameObject.layer;
 
@@ -31,6 +30,8 @@ public class WaveSpawn : NetworkBehaviour {
 				/*moveAI.path = lastLane == lane1 ? lane2 : lane1;
 				lastLane = moveAI.path;*/
 				moveAI.path = lane1;
+
+				NetworkServer.Spawn (clone);
 			}
 
 			yield return new WaitForSeconds (timeBetweenWave);
