@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 public class Health : NetworkBehaviour 
 {
 
-	//public const int maxHealth = 100;
+	private int maxHealth;
 
 	[SyncVar(hook = "OnChangeHealth")]
 	public int currentHealth;
@@ -20,15 +20,21 @@ public class Health : NetworkBehaviour
 
 	public GameObject Player;
 
+	private float healthBarWidth;
 	// Use this for initialization
 	void Start () 
 	{
-		currentHealth = MovingObjectStats.GetMaxHealthForObject (gameObject);
+		healthBarWidth =healthBar.sizeDelta.x;
+
+		maxHealth = MovingObjectStats.GetMaxHealthForObject (gameObject);
+		currentHealth = maxHealth;
 
 		if(isLocalPlayer)	
 		{
 			spawnPoints = FindObjectsOfType<NetworkStartPosition> ();
 		}
+
+
 	}
 	
 	// Update is called once per frame
@@ -65,7 +71,7 @@ public class Health : NetworkBehaviour
 					Helpers.DestroyObject (gameObject);
 				} else 
 				{
-					currentHealth = MovingObjectStats.GetMaxHealthForObject (gameObject);
+					currentHealth = maxHealth;
 
 					RpcRespawn ();
 				}
@@ -79,8 +85,7 @@ public class Health : NetworkBehaviour
 
 	void OnChangeHealth(int currentHealth)
 	{
-		healthBar.sizeDelta = new Vector2 (currentHealth, healthBar.sizeDelta.y);
-
+		healthBar.sizeDelta = new Vector2 (((float)currentHealth)/((float)maxHealth)*healthBarWidth, healthBar.sizeDelta.y);
 	}
 
 	[ClientRpc]

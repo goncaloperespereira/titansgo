@@ -343,7 +343,7 @@ public class PlayerController2D : NetworkBehaviour
 		Golem_2 = GameObject.FindGameObjectWithTag("Golem_2");
 
 		shootButton.GetComponent<Button>().onClick.AddListener (() => {
-			CmdFire ();
+			//CmdFire ();
 
 		});
 

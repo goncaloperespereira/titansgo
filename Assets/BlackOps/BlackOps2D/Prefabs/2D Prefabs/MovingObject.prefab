@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013999444602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -71.563835, y: -38.620197, z: 0}
+  m_LocalPosition: {x: -1.5215545, y: -5.42447, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000013738416806}
@@ -145,7 +145,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013994087456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.78, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 1}
   m_Children: []
   m_Father: {fileID: 4000010966611504}
@@ -213,7 +213,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 12
+  m_Radius: 17.53
 --- !u!95 &95332438278936196
 Animator:
   serializedVersion: 3
@@ -267,6 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175b41a0afc20422daef6f76eb9ef074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flipPriorities: 0
 --- !u!114 &114000012956250088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -279,13 +280,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 10
-  maxHealth: 100
-  attackActionTime: 0.4
-  attackCooldown: 1.5
-  attackDamage: 30
+  maxHealth: 125
+  attackActionTime: 0.3
+  attackCooldown: 1
+  attackDamage: 20
   movementVelocity: 4
-  timeBetweenAttackStartAndDamageIsDelt: 0.3
-  attackRange: 8
+  attackRange: 5
 --- !u!114 &114000013218953476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -443,6 +443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsInSight: []
+  radius: 0
 --- !u!114 &114970304845777782
 MonoBehaviour:
   m_ObjectHideFlags: 1

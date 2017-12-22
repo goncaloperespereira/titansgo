@@ -10,7 +10,6 @@ public class MovingObjectStats : NetworkBehaviour {
 	public float attackCooldown = 2.0f;
 	public int attackDamage = 30;
 	public float movementVelocity = 3;
-	public float timeBetweenAttackStartAndDamageIsDelt = 0.3f;
 	public float attackRange = 1;
 
 	//public float health;
