@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4858651365008704}
   - component: {fileID: 212991424895202516}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,10 +42,10 @@ GameObject:
   - component: {fileID: 61032444489278666}
   - component: {fileID: 50405728258753490}
   - component: {fileID: 61314762599686340}
-  - component: {fileID: 114178781458335462}
-  m_Layer: 9
-  m_Name: Golem
-  m_TagString: Golem_1
+  - component: {fileID: 114537277061151840}
+  m_Layer: 8
+  m_Name: Golem_4
+  m_TagString: Golem_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 223851483124874338}
   - component: {fileID: 114384582864448202}
   - component: {fileID: 114490536177189608}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Healthbar Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 224261071829574496}
   - component: {fileID: 222353035444102976}
   - component: {fileID: 114438560294528374}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 224668733601989652}
   - component: {fileID: 222663838471869656}
   - component: {fileID: 114266954911978564}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1577336622892230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.898867, y: -34.338043, z: 0}
+  m_LocalPosition: {x: -11.560404, y: -0.28318197, z: 0}
   m_LocalScale: {x: 6.5, y: 6.5, z: 6.5}
   m_Children:
   - {fileID: 4858651365008704}
@@ -200,26 +200,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
---- !u!114 &114178781458335462
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1577336622892230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0363d09eb78e74fec8503805d7b29bea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  priority: 1
-  maxHealth: 400
-  attackActionTime: 0.5
-  attackCooldown: 2
-  attackDamage: 30
-  movementVelocity: 3
-  timeBetweenAttackStartAndDamageIsDelt: 0.3
-  attackRange: 1
-  health: 0
 --- !u!114 &114266954911978564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -332,6 +312,26 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114537277061151840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1577336622892230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0363d09eb78e74fec8503805d7b29bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 1
+  maxHealth: 400
+  attackActionTime: 0.5
+  attackCooldown: 2
+  attackDamage: 30
+  movementVelocity: 3
+  timeBetweenAttackStartAndDamageIsDelt: 0.3
+  attackRange: 1
+  health: 0
 --- !u!114 &114655494486330608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -346,22 +346,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 190
-    i1: 32
-    i2: 37
-    i3: 162
-    i4: 47
-    i5: 221
-    i6: 244
-    i7: 51
-    i8: 105
-    i9: 154
-    i10: 159
-    i11: 202
-    i12: 149
-    i13: 22
-    i14: 129
-    i15: 137
+    i0: 131
+    i1: 103
+    i2: 244
+    i3: 101
+    i4: 112
+    i5: 21
+    i6: 36
+    i7: 79
+    i8: 25
+    i9: 138
+    i10: 136
+    i11: 171
+    i12: 239
+    i13: 3
+    i14: 192
+    i15: 127
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &114719466910907938

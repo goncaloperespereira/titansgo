@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 
 	public Text timerText;
 
+	GameObject spawnPoint1;
+	GameObject spawnPoint2;
 
 	// Use this for initialization
 	void Start () 
@@ -31,6 +33,11 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void GameOver()
+	{
+
+	}
+
+	public void GetSpawnPoint()	
 	{
 
 	}

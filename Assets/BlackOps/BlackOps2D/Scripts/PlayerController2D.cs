@@ -262,7 +262,7 @@ public class PlayerController2D : NetworkBehaviour
 
 	public void OnTriggerEnter2D (Collider2D other)
 	{
-		if(other.tag == "Golem_1" && gameObject.tag == "Player")	
+		if(other.tag == "Golem_1" && other.gameObject.layer == this.gameObject.layer && gameObject.tag == "Player")	
 		{
 
 			hopButton.GetComponent<Image> ().color = new Color(255f,255f,255f,255f);
@@ -272,7 +272,7 @@ public class PlayerController2D : NetworkBehaviour
 
 		}
 
-		if(other.tag == "Golem_2" && gameObject.tag == "Player")	
+		if(other.tag == "Golem_2" && other.gameObject.layer == this.gameObject.layer && gameObject.tag == "Player")	
 		{
 
 			hopButton.GetComponent<Image> ().color = new Color(255f,255f,255f,255f);
@@ -286,7 +286,7 @@ public class PlayerController2D : NetworkBehaviour
 
 	public void OnTriggerExit2D (Collider2D other)
 	{
-		if(other.tag == "Golem_1" && gameObject.tag == "Player")	
+		if(other.tag == "Golem_1" && other.gameObject.layer == this.gameObject.layer && gameObject.tag == "Player")	
 		{
 
 			hopButton.GetComponent<Image> ().color = new Color(255f,255f,255f,80f);
@@ -298,7 +298,7 @@ public class PlayerController2D : NetworkBehaviour
 
 		}
 
-		if(other.tag == "Golem_2" && gameObject.tag == "Player")	
+		if(other.tag == "Golem_2" && other.gameObject.layer == this.gameObject.layer && gameObject.tag == "Player")	
 		{
 
 			hopButton.GetComponent<Image> ().color = new Color(255f,255f,255f,80f);
