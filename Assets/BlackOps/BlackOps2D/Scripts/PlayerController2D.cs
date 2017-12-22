@@ -42,6 +42,8 @@ public class PlayerController2D : NetworkBehaviour
 	public bool hoppedGolem1;
 	public bool hoppedGolem2;
 
+	private GameObject donkeyGolem;
+
 
 
 	private void Start()
@@ -59,7 +61,6 @@ public class PlayerController2D : NetworkBehaviour
 
 		if (EventSystem.current.IsPointerOverGameObject() /* || EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)*/)
 		{
-			Debug.Log("Touched the UI");
 			canMove = false;
 		}
 		else			
@@ -101,29 +102,133 @@ public class PlayerController2D : NetworkBehaviour
 	[Command]
 	public void CmdHop()		
 	{
-
 		hopped = !hopped;
+		if (hopped) {
+			GameObject[] golem1s = GameObject.FindGameObjectsWithTag ("Golem_1");
+			GameObject[] golem2s = GameObject.FindGameObjectsWithTag ("Golem_2");
 
+			List<GameObject> golemList = new List<GameObject> ();
+			foreach (GameObject golem in golem1s) {
+				if (golem.layer == gameObject.layer) {
+					golemList.Add (golem);
+				}
+			}
+			foreach (GameObject golem in golem2s) {
+				if (golem.layer == gameObject.layer) {
+					golemList.Add (golem);
+				}
+			}
 
-		if (hopped == true && canHopGolem1 == true)
+			foreach (GameObject golem in golemList) {
+				if (canHopGolem1 == true) {
+					if (golem.tag == "Golem_1") {
+						donkeyGolem = golem;
+
+						//change tag
+						gameObject.tag = "Player_Combined"; 
+
+						//Change Sprite and scale to the combined object
+						gameObject.GetComponent<SpriteRenderer> ().sprite = gobzillaSprite;
+						gameObject.transform.localScale = new Vector3 (6.5f, 6.5f, 6.5f);
+
+						//store current health on a temporary variable
+						storeTempHealth = gameObject.GetComponent<Health> ().currentHealth;
+
+						//get health from Golem and assign it to Player
+						gameObject.GetComponent<Health> ().currentHealth = golem.GetComponent<Health> ().currentHealth;
+
+						golem.SetActive (false);
+
+						hopButton.GetComponent<Button> ().interactable = true;
+
+						hoppedGolem1 = true;
+					}
+				}
+
+				if (canHopGolem2 == true) {
+					if (golem.tag == "Golem_2") {
+						donkeyGolem = golem;
+
+						//change tag
+						gameObject.tag = "Player_Combined"; 
+
+						//Change Sprite and scale to the combined object
+						gameObject.GetComponent<SpriteRenderer> ().sprite = gobzillaSprite;
+						gameObject.transform.localScale = new Vector3 (6.5f, 6.5f, 6.5f);
+
+						//store current health on a temporary variable
+						storeTempHealth = gameObject.GetComponent<Health> ().currentHealth;
+
+						//get health from Golem and assign it to Player
+						gameObject.GetComponent<Health> ().currentHealth = golem.GetComponent<Health> ().currentHealth;
+
+						golem.SetActive (false);
+
+						hopButton.GetComponent<Button> ().interactable = true;
+
+						hoppedGolem2 = true;
+					}
+				}
+			}
+		}
+		else
 		{
+			gameObject.GetComponent<SpriteRenderer> ().sprite = goblinSprite;
+			gameObject.transform.localScale = new Vector3 (6.5f, 6.5f, 5.0f);
 
+
+			//if(golem.layer == this.gameObject.layer)
+			//{
+				//Reactivate Golem
+			donkeyGolem.SetActive (true);
+			//get health from player and reassign to goelm
+			donkeyGolem.GetComponent<Health>().currentHealth = gameObject.GetComponent<Health>().currentHealth;
+
+			Vector3 newPosition = transform.position + new Vector3 (5.0f, 0.0f, 0.0f);
+			donkeyGolem.transform.position = newPosition;
+
+			//}
+
+			//reassign old health to the Goblin
+			gameObject.GetComponent<Health> ().currentHealth = storeTempHealth;
+
+			hopButton.GetComponent<Button> ().interactable = false;
+
+			hoppedGolem1 = false;
+			donkeyGolem = null;
 
 			//change tag
-			gameObject.tag = "Player_Combined"; 
+			gameObject.tag = "Player"; 
 
-			//Change Sprite and scale to the combined object
-			gameObject.GetComponent<SpriteRenderer> ().sprite = gobzillaSprite;
-			gameObject.transform.localScale = new Vector3 (6.5f, 6.5f, 6.5f);
+		}
 
-			//store current health on a temporary variable
-			storeTempHealth = gameObject.GetComponent<Health>().currentHealth;
 
-			//get health from Golem and assign it to Player
-			gameObject.GetComponent<Health>().currentHealth = Golem_1.GetComponent<Health>().currentHealth;
+		/*if (hopped == true && canHopGolem1 == true)
+		{
+			
 
-			//DeActivate Golem
-			Golem_1.SetActive (false);
+			foreach(GameObject golem in golemArray)
+			{
+
+				if(golem.layer == gameObject.layer && golem.tag == "Golem_1")
+				{
+					//change tag
+					gameObject.tag = "Player_Combined"; 
+
+					//Change Sprite and scale to the combined object
+					gameObject.GetComponent<SpriteRenderer> ().sprite = gobzillaSprite;
+					gameObject.transform.localScale = new Vector3 (6.5f, 6.5f, 6.5f);
+
+					//store current health on a temporary variable
+					storeTempHealth = gameObject.GetComponent<Health>().currentHealth;
+
+					//get health from Golem and assign it to Player
+					gameObject.GetComponent<Health>().currentHealth = golem.GetComponent<Health>().currentHealth;
+
+					golem.SetActive (false);
+				}
+
+			}
 
 			hopButton.GetComponent<Button> ().interactable = true;
 
@@ -135,21 +240,28 @@ public class PlayerController2D : NetworkBehaviour
 		{
 
 
-			//change tag
-			gameObject.tag = "Player_Combined"; 
+			foreach(GameObject golem in golemArray)
+			{
 
-			//Change Sprite and scale to the combined object
-			gameObject.GetComponent<SpriteRenderer> ().sprite = gobzillaSprite;
-			gameObject.transform.localScale = new Vector3 (6.5f, 6.5f, 6.5f);
+				if(golem.layer == gameObject.layer && golem.tag == "Golem_2")
+				{
+					//change tag
+					gameObject.tag = "Player_Combined"; 
 
-			//store current health on a temporary variable
-			storeTempHealth = gameObject.GetComponent<Health>().currentHealth;
+					//Change Sprite and scale to the combined object
+					gameObject.GetComponent<SpriteRenderer> ().sprite = gobzillaSprite;
+					gameObject.transform.localScale = new Vector3 (6.5f, 6.5f, 6.5f);
 
-			//get health from Golem and assign it to Player
-			gameObject.GetComponent<Health>().currentHealth = Golem_2.GetComponent<Health>().currentHealth;
+					//store current health on a temporary variable
+					storeTempHealth = gameObject.GetComponent<Health>().currentHealth;
 
-			//DeActivate Golem
-			Golem_2.SetActive (false);
+					//get health from Golem and assign it to Player
+					gameObject.GetComponent<Health>().currentHealth = golem.GetComponent<Health>().currentHealth;
+
+					golem.SetActive (false);
+				}
+					
+			}
 
 			hopButton.GetComponent<Button> ().interactable = true;
 
@@ -162,19 +274,25 @@ public class PlayerController2D : NetworkBehaviour
 			gameObject.GetComponent<SpriteRenderer> ().sprite = goblinSprite;
 			gameObject.transform.localScale = new Vector3 (6.5f, 6.5f, 5.0f);
 
-			//Reactivate Golem
-			Golem_1.SetActive (true);
+			foreach(GameObject golem in golemArray)
+			{
 
-			//get health from player and reassign to goelm
-			Golem_1.GetComponent<Health>().currentHealth = gameObject.GetComponent<Health>().currentHealth;
+				if(golem.layer == this.gameObject.layer)
+				{
+					//Reactivate Golem
+					golem.SetActive (true);
+					//get health from player and reassign to goelm
+					golem.GetComponent<Health>().currentHealth = gameObject.GetComponent<Health>().currentHealth;
+
+					Vector3 newPosition = transform.position + new Vector3 (5.0f, 0.0f, 0.0f);
+					golem.transform.position = newPosition;
+
+				}
+
+			}
 
 			//reassign old health to the Goblin
 			gameObject.GetComponent<Health> ().currentHealth = storeTempHealth;
-
-
-
-			Vector3 newPosition = transform.position + new Vector3 (5.0f, 0.0f, 0.0f);
-			Golem_1.transform.position = newPosition;
 
 			hopButton.GetComponent<Button> ().interactable = false;
 
@@ -211,7 +329,7 @@ public class PlayerController2D : NetworkBehaviour
 			//change tag
 			gameObject.tag = "Player"; 
 
-		}
+		}*/
 	} 
 
 	public void dontAllowHopOn2()
@@ -262,7 +380,7 @@ public class PlayerController2D : NetworkBehaviour
 
 	public void OnTriggerEnter2D (Collider2D other)
 	{
-		if(other.tag == "Golem_1" && other.gameObject.layer == this.gameObject.layer && gameObject.tag == "Player")	
+		if(other.name == "Golem_hoparea" && other.gameObject.layer == this.gameObject.layer && gameObject.tag == "Player")	
 		{
 
 			hopButton.GetComponent<Image> ().color = new Color(255f,255f,255f,255f);
