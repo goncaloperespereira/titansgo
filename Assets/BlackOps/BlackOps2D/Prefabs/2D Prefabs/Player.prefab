@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 114733234899649064}
   - component: {fileID: 114285890141601304}
   - component: {fileID: 114675164407905352}
+  - component: {fileID: 114174376298577416}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -117,7 +118,7 @@ GameObject:
   - component: {fileID: 4112445304334952}
   m_Layer: 0
   m_Name: TouchTarget
-  m_TagString: Untagged
+  m_TagString: Referencial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,7 +187,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1805675129168990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.0286918, y: -1.4817007, z: -5.335984}
+  m_LocalPosition: {x: -18.785004, y: -27.019505, z: -5.335984}
   m_LocalScale: {x: 6.5, y: 6.5, z: 6.5}
   m_Children:
   - {fileID: 4109769080546324}
@@ -380,6 +381,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsInSight: []
   radius: 0
+--- !u!114 &114174376298577416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1805675129168990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae38372057e3407c8dc6c7c8cf79d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectToFollow: {fileID: 1883143959106090}
 --- !u!114 &114285890141601304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -424,7 +437,7 @@ MonoBehaviour:
   attackCooldown: 1
   attackDamage: 50
   movementVelocity: 10
-  attackRange: 30
+  attackRange: 15
 --- !u!114 &114589242851454640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -479,7 +492,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1805675129168990}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 232d4133447d64e79b66af379b42d88c, type: 3}
   m_Name: 
@@ -530,6 +543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAITick: 0.05
+  positionOffset: {x: 0, y: 0}
   spawner: {fileID: 0}
 --- !u!114 &114827607356758274
 MonoBehaviour:
