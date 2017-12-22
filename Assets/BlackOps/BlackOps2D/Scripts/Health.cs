@@ -56,82 +56,25 @@ public class Health : NetworkBehaviour
 		//Reduce Health by the amount of damage
 		currentHealth -= amount;
 
-		if(currentHealth <= 0 && this.gameObject.tag == "Player")
-		{
-
-			if(destroyOnDeath)
-			{
-				Helpers.DestroyObject (gameObject);
-			}
-
-			else
-
-			{
-				currentHealth = MovingObjectStats.GetMaxHealthForObject (gameObject);
-
-				RpcRespawn ();
-			}
-
-			return true;
-		}
-
-		if(currentHealth <= 0 && this.gameObject.tag == "Player_Combined")
-		{
-			
-			if(destroyOnDeath)
-			{
-				Helpers.DestroyObject (gameObject);
-			}
-
-			else
-
-			{
-
+		if (currentHealth <= 0) {
+			if (this.gameObject.tag == "Player_Combined") {
 				this.gameObject.GetComponent<PlayerController2D> ().CmdHop ();
-				//RpcRespawn ();
+			} else {
+				if(destroyOnDeath)
+				{
+					Helpers.DestroyObject (gameObject);
+				} else 
+				{
+					currentHealth = MovingObjectStats.GetMaxHealthForObject (gameObject);
+
+					RpcRespawn ();
+				}
+
+				return true;
 			}
-			return true;
-		}
-
-		if(currentHealth <= 0 && this.gameObject.tag == "Golem_1")
-		{
-
-			if(destroyOnDeath)
-			{
-				Helpers.DestroyObject (gameObject);
-			}
-
-			else
-
-			{
-				currentHealth = MovingObjectStats.GetMaxHealthForObject (gameObject);
-
-				//RpcRespawn ();
-			}
-			return true;
-		}
-
-		if(currentHealth <= 0 && this.gameObject.tag == "Golem_2")
-		{
-
-			if(destroyOnDeath)
-			{
-				Helpers.DestroyObject (gameObject);
-			}
-
-			else
-
-			{
-				currentHealth = MovingObjectStats.GetMaxHealthForObject (gameObject);
-
-				//RpcRespawn ();
-			}
-
-			return true;
 		}
 
 		return false;
-
 	}
 
 	void OnChangeHealth(int currentHealth)
