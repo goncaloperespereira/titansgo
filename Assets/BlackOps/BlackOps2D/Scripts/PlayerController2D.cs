@@ -48,6 +48,20 @@ public class PlayerController2D : NetworkBehaviour
 
 	public GameObject touchTarget;
 
+	void Awake()	
+	{
+		GameObject[] spawnPoint = GameObject.FindGameObjectsWithTag ("spawnPoint");
+		var distance = Vector3.Distance(transform.position, spawnPoint[0].transform.position);
+		if (distance < 1)
+		{
+			gameObject.layer = spawnPoint [0].layer;		
+		}
+		else		
+		{
+			gameObject.layer = spawnPoint [1].layer;		
+		}
+	}
+
 	private void Start()
 	{
 		targetPos = transform.position;
@@ -353,6 +367,7 @@ public class PlayerController2D : NetworkBehaviour
 		//GetComponent<SpriteRenderer> ().color = Color.blue;
 		Camera.main.GetComponent<CameraScript> ().setTarget (gameObject.transform);
 
+
 		shootButton = GameObject.Find ("ButtonA");
 		hopButton = GameObject.Find ("ButtonB");
 		Golem_1 = GameObject.FindGameObjectWithTag("Golem_1");
@@ -379,6 +394,7 @@ public class PlayerController2D : NetworkBehaviour
 		EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
 		return results.Count > 0;
 	}
+
 
 
 	/*public void OnTriggerEnter2D (Collider2D other)
