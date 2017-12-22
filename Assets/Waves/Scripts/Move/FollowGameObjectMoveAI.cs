@@ -12,6 +12,9 @@ public class FollowGameObjectMoveAI : MoveAI {
 			float attackRange = MovingObjectStats.GetAttackRangeForObject (gameObject);
 			FollowGameObjectRequest request = new FollowGameObjectRequest (0.5f, this, attackRange);
 			request.targetObject = gameObjectToFollow;
+			if (request.IsInRange ()) {
+				return null;
+			}
 			return request;
 		}
 	}

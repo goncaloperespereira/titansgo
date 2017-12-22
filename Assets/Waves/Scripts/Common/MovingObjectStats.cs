@@ -126,15 +126,21 @@ public class MovingObjectStats : NetworkBehaviour {
 			h.TakeDamage (damage);
 
 		}
-		return false;
-		/*health -= damage;
-		if (health <= 0.0f) {
-			health = 0.0f;
-			//Debug.Log ("Object Destoyed " + this.name);
-			Helpers.DestroyObject (this.gameObject);
-			return true;
-		}*/
 
 		return false;
+	}
+
+	public static float ComputeRadiusOfObject(GameObject obj) {
+		CircleCollider2D collider = obj.GetComponent<CircleCollider2D> ();
+		if (collider != null) {
+			return collider.radius;
+		}
+
+		BoxCollider2D bcollider = obj.GetComponent<BoxCollider2D> ();
+		if (bcollider != null) {
+			return bcollider.bounds.extents.x * 0.5f + bcollider.bounds.extents.y *0.5f;
+		}
+
+		return 0.0f;
 	}
 }

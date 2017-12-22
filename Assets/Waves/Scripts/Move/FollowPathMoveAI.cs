@@ -29,11 +29,26 @@ public class FollowPathMoveAI : MoveAI {
 
 public class FollowGameObjectRequest : MoveRequest{
 	private float squaredMinDistance;
+	private float minDistance;
 	public FollowGameObjectRequest(float priority, MoveAI ai, float distance): base(priority, ai) {
+		minDistance = distance;
 		squaredMinDistance = distance*distance;
 	}
 
-	public GameObject targetObject;
+	private GameObject _targetObject;
+	public GameObject targetObject
+	{
+		get { return _targetObject; }
+		set { 
+			_targetObject = value;
+			if (_targetObject != null) {
+				targetObjectRadius = MovingObjectStats.ComputeRadiusOfObject (_targetObject);
+			} else {
+				targetObjectRadius = 0.0f;
+			}
+		}
+	}
+	private float targetObjectRadius;
 
 	public override void StartAction() {
 		TickAction ();
@@ -65,7 +80,14 @@ public class FollowGameObjectRequest : MoveRequest{
 
 
 	public bool IsInRange() {
+		//Vector3 delta = targetObject.transform.position - moveAI.gameObject.transform.position;
+		//return delta.sqrMagnitude < squaredMinDistance;
+
+		return DistanceToObject () < (minDistance + targetObjectRadius);
+	}
+
+	public float DistanceToObject() {
 		Vector3 delta = targetObject.transform.position - moveAI.gameObject.transform.position;
-		return delta.sqrMagnitude < squaredMinDistance;
+		return delta.magnitude;
 	}
 }

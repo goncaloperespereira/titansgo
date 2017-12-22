@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsInSight: []
+  radius: 0
 --- !u!114 &114285890141601304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -424,7 +425,7 @@ MonoBehaviour:
   attackDamage: 20
   movementVelocity: 20
   timeBetweenAttackStartAndDamageIsDelt: 0.2
-  attackRange: 1
+  attackRange: 8
 --- !u!114 &114589242851454640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -496,6 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175b41a0afc20422daef6f76eb9ef074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flipPriorities: 1
 --- !u!114 &114783231059380664
 MonoBehaviour:
   m_ObjectHideFlags: 1

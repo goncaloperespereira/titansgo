@@ -5,6 +5,7 @@ public class AttackRequest : AIRequest{
 	protected AttackAI attackAI;
 	protected GameObject objectToAttack;
 	protected FollowGameObjectRequest fgoRequest;
+
 	public AttackRequest (float priority, AttackAI ai, GameObject targetObject) : base (priority){
 		attackAI = ai;
 		objectToAttack = targetObject;
@@ -51,6 +52,10 @@ public class AttackRequest : AIRequest{
 
 			return false;
 		} else {
+			LineOfSight sight = attackAI.gameObject.GetComponentInChildren<LineOfSight> ();
+			if (fgoRequest.DistanceToObject () > sight.radius)
+				return false; // abort since the object is too far away
+			
 			if (fgoRequest.TickAction ()) {
 				return true;
 			} else {

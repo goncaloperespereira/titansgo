@@ -6,12 +6,17 @@ public class LineOfSight : MonoBehaviour {
 	[HideInInspector]
 	public GameObject[] objectsInSight;
 
+	[HideInInspector]
+	public float radius;
+
 	private HashSet<Collider2D> collidersInside;
 	private bool setChanged = false;
 
 	// Use this for initialization
 	void Start () {
 		collidersInside = new HashSet<Collider2D> ();
+		CircleCollider2D collider = GetComponent<CircleCollider2D> ();
+		radius = collider.radius;
 	}
 
 	void Update () {

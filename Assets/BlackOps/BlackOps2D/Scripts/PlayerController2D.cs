@@ -87,18 +87,6 @@ public class PlayerController2D : NetworkBehaviour
 	}
 
 	[Command]
-	public void CmdFire()		
-	{
-		GameObject bullet = (GameObject)Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
-
-		bullet.GetComponent<Rigidbody2D> ().velocity = bullet.transform.up * 6;
-
-		NetworkServer.Spawn (bullet);
-
-		Destroy (bullet, 2.0f);
-	}
-
-	[Command]
 	public void CmdHop()		
 	{
 		hopped = !hopped;

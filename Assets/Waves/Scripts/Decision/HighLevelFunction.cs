@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class HighLevelFunction : MonoBehaviour {
+	public bool flipPriorities = false;
 
 	private MoveAI moveAI;
 	public void SetMoveAI(MoveAI ai) {
@@ -26,8 +27,14 @@ public class HighLevelFunction : MonoBehaviour {
 
 	IEnumerator StartAI() {
 		while (true) {
-			MoveRequest moveRequest = moveAI.GetRequest ();
-			AttackRequest attackRequest = attackAI.GetRequest();
+			AIRequest moveRequest = moveAI.GetRequest ();
+			AIRequest attackRequest = attackAI.GetRequest();
+
+			if (flipPriorities) {
+				AIRequest req = attackRequest;
+				attackRequest = moveRequest;
+				moveRequest = req;
+			}
 
 			if (attackRequest != null) {
 				attackRequest.StartAction ();
