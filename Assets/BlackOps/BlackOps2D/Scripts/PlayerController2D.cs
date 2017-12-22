@@ -44,7 +44,7 @@ public class PlayerController2D : NetworkBehaviour
 
 	private GameObject donkeyGolem;
 
-
+	public GameObject touchTarget;
 
 	private void Start()
 	{
@@ -65,23 +65,22 @@ public class PlayerController2D : NetworkBehaviour
 		}
 		else			
 		{
-
 			canMove = true;
 		}
 
 		if(Input.GetMouseButton(0) && canMove == true || Input.touchCount > 0 &&  Input.GetTouch(0).phase == TouchPhase.Moved && canMove == true)
 		{
-				
 			targetPos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			//target.position = targetPos;
 
 				
-				if((Vector2)transform.position != targetPos)
+			if((Vector2)transform.position != targetPos)
 			{
-				transform.position = Vector2.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+				touchTarget.transform.position = targetPos;
 			}
-				
-		
+		}
+
+		if (!Input.GetMouseButton (0) || Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Ended && canMove == true) {
+			touchTarget.transform.localPosition = new Vector3();
 		}
 
 		dontAllowHopOn2 ();
