@@ -28,7 +28,7 @@ public class LineOfSight : MonoBehaviour {
 					objectsInSight [i] = collider.gameObject;
 					i++;
 				}
-			} catch(System.Exception e) {
+			} catch(System.Exception) {
 				collidersInside.Clear ();
 			}
 		} else {
