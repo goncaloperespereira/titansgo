@@ -26,6 +26,8 @@ public class PlayerController2D : NetworkBehaviour
 	//sprites
 	public Sprite gobzillaSprite;
 	public Sprite goblinSprite;
+	public Sprite hopSprite;
+	public Sprite unhopSprite;
 
 	//Golems
 	public GameObject Golem_1;
@@ -84,6 +86,7 @@ public class PlayerController2D : NetworkBehaviour
 		}
 
 		dontAllowHopOn2 ();
+
 	}
 
 	[Command]
@@ -331,11 +334,24 @@ public class PlayerController2D : NetworkBehaviour
 			canHopGolem1 = false;
 		}
 	}
+
+	public void CheckHopSprite()
+	{
+		if (hopped == true)
+		{
+			hopButton.GetComponent<Image> ().sprite = unhopSprite;
+		}
+		else
+		{
+			hopButton.GetComponent<Image> ().sprite = hopSprite;
+		}
+	}
 		
 
 	public override void OnStartLocalPlayer()	
 	{
 		//GetComponent<SpriteRenderer> ().color = Color.blue;
+		Camera.main.GetComponent<CameraScript> ().setTarget (gameObject.transform);
 
 		shootButton = GameObject.Find ("ButtonA");
 		hopButton = GameObject.Find ("ButtonB");
