@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class GolemSpawner : NetworkBehaviour {
 
 	public GameObject golemPrefab;
-	public int numberOfGolems;
+	//public int numberOfGolems;
 
 
 	// Use this for initialization
@@ -23,17 +23,14 @@ public class GolemSpawner : NetworkBehaviour {
 
 	public override void OnStartServer()
 	{
+		var spawnRotation = Quaternion.identity;
 
-		for (int i = 0; i < numberOfGolems; i++)
-		{
-			//var spawnPosition = new Vector3 (21.0f, -45.0f , 0.0f);
-			var spawnRotation = Quaternion.Euler (0.0f, Random.Range (0, 0), 0.0f);
+		var playerBase = (GameObject)Instantiate (golemPrefab, gameObject.transform.position, spawnRotation);
+		playerBase.layer = gameObject.layer;
+		playerBase.tag = gameObject.tag;
+		NetworkServer.Spawn (playerBase);
 
-			var playerBase = (GameObject)Instantiate (golemPrefab, gameObject.transform.position, spawnRotation);
-			NetworkServer.Spawn (playerBase);
-		}
-
-
+		Destroy (gameObject);
 	}
 
 }

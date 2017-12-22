@@ -1849,7 +1849,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1853915916}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1273139446
 MonoBehaviour:
@@ -1938,9 +1938,9 @@ GameObject:
   - component: {fileID: 1306849504}
   - component: {fileID: 1306849506}
   - component: {fileID: 1306849505}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GolemSpawner_3
-  m_TagString: Untagged
+  m_TagString: Golem_1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1956,7 +1956,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1853915916}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1306849505
 MonoBehaviour:
@@ -2001,9 +2001,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7f709ff6e284a50827ae2d977f49eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  golemPrefab: {fileID: 1577336622892230, guid: 5e7cf071321564c4fa1250dfecd16981,
+  golemPrefab: {fileID: 1577336622892230, guid: be2025a22fddf433699a9fca95168189,
     type: 2}
-  numberOfGolems: 1
 --- !u!1 &1326887758
 GameObject:
   m_ObjectHideFlags: 0
@@ -2014,9 +2013,9 @@ GameObject:
   - component: {fileID: 1326887759}
   - component: {fileID: 1326887760}
   - component: {fileID: 1326887761}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GolemSpawner_2
-  m_TagString: Untagged
+  m_TagString: Golem_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2077,9 +2076,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7f709ff6e284a50827ae2d977f49eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  golemPrefab: {fileID: 1577336622892230, guid: 097b387d86ef34d63b656c39a0d7b61d,
+  golemPrefab: {fileID: 1577336622892230, guid: be2025a22fddf433699a9fca95168189,
     type: 2}
-  numberOfGolems: 1
 --- !u!1 &1353391419
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,9 +2282,9 @@ GameObject:
   - component: {fileID: 1400130191}
   - component: {fileID: 1400130193}
   - component: {fileID: 1400130192}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GolemSpawner_1
-  m_TagString: Untagged
+  m_TagString: Golem_1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2349,7 +2347,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   golemPrefab: {fileID: 1577336622892230, guid: be2025a22fddf433699a9fca95168189,
     type: 2}
-  numberOfGolems: 1
 --- !u!1 &1499051270
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,7 +2672,7 @@ MonoBehaviour:
   - {fileID: 1358443513811060, guid: cfc92b2e3d11a42e2930a923b3f8cd13, type: 2}
   - {fileID: 1577336622892230, guid: be2025a22fddf433699a9fca95168189, type: 2}
   - {fileID: 0}
-  - {fileID: 1577336622892230, guid: 097b387d86ef34d63b656c39a0d7b61d, type: 2}
+  - {fileID: 0}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -2912,9 +2909,9 @@ GameObject:
   - component: {fileID: 1779297165}
   - component: {fileID: 1779297167}
   - component: {fileID: 1779297166}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GolemSpawner_4
-  m_TagString: Untagged
+  m_TagString: Golem_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2930,7 +2927,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1853915916}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1779297166
 MonoBehaviour:
@@ -2943,9 +2940,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7f709ff6e284a50827ae2d977f49eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  golemPrefab: {fileID: 1577336622892230, guid: 8367f4657015244f198a88abef03c07f,
+  golemPrefab: {fileID: 1577336622892230, guid: be2025a22fddf433699a9fca95168189,
     type: 2}
-  numberOfGolems: 1
 --- !u!114 &1779297167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3007,9 +3003,9 @@ Transform:
   - {fileID: 528763433}
   - {fileID: 1400130191}
   - {fileID: 1326887759}
-  - {fileID: 1273139445}
   - {fileID: 1306849504}
   - {fileID: 1779297165}
+  - {fileID: 1273139445}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
