@@ -353,6 +353,7 @@ public class PlayerController2D : NetworkBehaviour
 		//GetComponent<SpriteRenderer> ().color = Color.blue;
 		Camera.main.GetComponent<CameraScript> ().setTarget (gameObject.transform);
 
+
 		shootButton = GameObject.Find ("ButtonA");
 		hopButton = GameObject.Find ("ButtonB");
 		Golem_1 = GameObject.FindGameObjectWithTag("Golem_1");
@@ -379,6 +380,7 @@ public class PlayerController2D : NetworkBehaviour
 		EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
 		return results.Count > 0;
 	}
+
 
 
 	/*public void OnTriggerEnter2D (Collider2D other)
