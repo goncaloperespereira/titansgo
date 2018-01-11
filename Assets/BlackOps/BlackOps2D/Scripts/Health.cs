@@ -20,6 +20,9 @@ public class Health : NetworkBehaviour
 
 	public GameObject Player;
 
+	public GameObject takeDamageParticleEffect;
+	public GameObject dieParticleEffect;
+
 	private float healthBarWidth;
 	// Use this for initialization
 	void Start () 
@@ -62,7 +65,12 @@ public class Health : NetworkBehaviour
 		//Reduce Health by the amount of damage
 		currentHealth -= amount;
 
+		Instantiate (takeDamageParticleEffect, transform.position, transform.rotation);
+
 		if (currentHealth <= 0) {
+
+			Instantiate (dieParticleEffect, transform.position, transform.rotation);
+
 			if (this.gameObject.tag == "Player_Combined") {
 				this.gameObject.GetComponent<PlayerController2D> ().CmdHop ();
 			} else {

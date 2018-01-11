@@ -320,7 +320,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAITick: 3
-  positionOffset: {x: 0, y: 0}
   spawner: {fileID: 0}
 --- !u!114 &114384582864448202
 MonoBehaviour:
@@ -491,6 +490,9 @@ MonoBehaviour:
   healthBar: {fileID: 224668733601989652}
   destroyOnDeath: 1
   Player: {fileID: 1738697539670364, guid: 1d236ea52db394f13b569b747368ad11, type: 2}
+  takeDamageParticleEffect: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb,
+    type: 2}
+  dieParticleEffect: {fileID: 100004, guid: cb708bfa0fc041541853a80130a63844, type: 2}
 --- !u!114 &114740804220179798
 MonoBehaviour:
   m_ObjectHideFlags: 1
