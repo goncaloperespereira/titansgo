@@ -24,11 +24,11 @@ public class AttackRequest : AIRequest{
 		if (MovingObjectStats.IsInAttackCooldown(attackAI.gameObject)) {
 			return;
 		} else {
-			//Debug.Log (attackAI.gameObject.name + " Attack");
+			Debug.Log (attackAI.gameObject.name + " Attack");
 
 			attackAI.AttackParticleEffect ();
 			attackParticleEffectVelocity = Vector3.Distance (objectToAttack.transform.position, attackAI.gameObject.transform.position) / MovingObjectStats.GetAttackActionTimeForObject (attackAI.gameObject);
-			attackAI.attackParticleEffect.transform.position = Vector3.MoveTowards(attackAI.attackParticleEffect.transform.position, objectToAttack.transform.position, attackParticleEffectVelocity * Time.deltaTime);
+			attackAI.particleEffect.transform.position = Vector3.MoveTowards(attackAI.particleEffect.transform.position, objectToAttack.transform.position, attackParticleEffectVelocity * Time.deltaTime);
 
 			attackFinishTimestamp = Time.time + MovingObjectStats.GetAttackActionTimeForObject (attackAI.gameObject);
 			MovingObjectStats.StartAttackColldownForObject(attackAI.gameObject);
@@ -47,14 +47,16 @@ public class AttackRequest : AIRequest{
 	public bool damageDelt = false;
 	public override bool TickAction() {
 		if (fgoRequest == null) {
-			if (Time.time < attackFinishTimestamp) {
+			if (Time.time > attackFinishTimestamp) {
 				if (!damageDelt) {
 					MovingObjectStats.DealDamageFromObjectToObject (attackAI.gameObject, objectToAttack);
-					// destroy particle system
+					GameObject.Destroy (attackAI.particleEffect);
 					damageDelt = true;
-				} else {
-					attackAI.attackParticleEffect.transform.position = Vector3.MoveTowards(attackAI.attackParticleEffect.transform.position, objectToAttack.transform.position, attackParticleEffectVelocity * Time.deltaTime);
-				}
+					Debug.Log ("Damage done Mothafuckas!");
+				} 
+				return true;
+			}else {
+				attackAI.particleEffect.transform.position = Vector3.MoveTowards(attackAI.particleEffect.transform.position, objectToAttack.transform.position, attackParticleEffectVelocity * Time.deltaTime);
 				return true;
 			}
 
@@ -112,9 +114,11 @@ public class AttackAI : MonoBehaviour {
 
 	}
 
+	public GameObject particleEffect;
+
 	public void AttackParticleEffect()
 	{
-		Instantiate (attackParticleEffect, transform.position, transform.rotation);
+		particleEffect = Instantiate (attackParticleEffect, transform.position, transform.rotation);
 		attackParticleEffect.layer = this.gameObject.layer;
 
 	}
