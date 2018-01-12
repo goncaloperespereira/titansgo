@@ -19,6 +19,7 @@ public class AttackRequest : AIRequest{
 		
 	float attackFinishTimestamp;
 	float attackColldownTimestamp;
+	float attackParticleEffectVelocity;
 	void StartAttack() {
 		if (MovingObjectStats.IsInAttackCooldown(attackAI.gameObject)) {
 			return;
@@ -26,7 +27,8 @@ public class AttackRequest : AIRequest{
 			//Debug.Log (attackAI.gameObject.name + " Attack");
 
 			attackAI.AttackParticleEffect ();
-			attackAI.attackParticleEffect.transform.position = Vector3.MoveTowards(attackAI.attackParticleEffect.transform.position, objectToAttack.transform.position, 10000 * Time.deltaTime);
+			attackParticleEffectVelocity = Vector3.Distance (objectToAttack.transform.position, attackAI.gameObject.transform.position) / MovingObjectStats.GetAttackActionTimeForObject (attackAI.gameObject);
+			attackAI.attackParticleEffect.transform.position = Vector3.MoveTowards(attackAI.attackParticleEffect.transform.position, objectToAttack.transform.position, attackParticleEffectVelocity * Time.deltaTime);
 
 			attackFinishTimestamp = Time.time + MovingObjectStats.GetAttackActionTimeForObject (attackAI.gameObject);
 			MovingObjectStats.StartAttackColldownForObject(attackAI.gameObject);
@@ -48,7 +50,10 @@ public class AttackRequest : AIRequest{
 			if (Time.time < attackFinishTimestamp) {
 				if (!damageDelt) {
 					MovingObjectStats.DealDamageFromObjectToObject (attackAI.gameObject, objectToAttack);
+					// destroy particle system
 					damageDelt = true;
+				} else {
+					attackAI.attackParticleEffect.transform.position = Vector3.MoveTowards(attackAI.attackParticleEffect.transform.position, objectToAttack.transform.position, attackParticleEffectVelocity * Time.deltaTime);
 				}
 				return true;
 			}
