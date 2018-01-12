@@ -5459,6 +5459,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 50414686712194504, guid: 167f4aba711471d46a4a5bf4b4d11bae,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50414686712194504, guid: 167f4aba711471d46a4a5bf4b4d11bae,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 167f4aba711471d46a4a5bf4b4d11bae, type: 2}
   m_IsPrefabParent: 0
@@ -6386,22 +6396,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &1241634066 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100004, guid: 167f4aba711471d46a4a5bf4b4d11bae, type: 2}
-  m_PrefabInternal: {fileID: 1041477670}
---- !u!65 &1241634067
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1241634066}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1252399031
 Prefab:
   m_ObjectHideFlags: 0
@@ -12392,6 +12386,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012215246498, guid: c92190a5e4e5743a09c69f28aa3b3089,
+        type: 2}
+      propertyPath: attackParticleEffect
+      value: 
+      objectReference: {fileID: 100004, guid: 167f4aba711471d46a4a5bf4b4d11bae, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c92190a5e4e5743a09c69f28aa3b3089, type: 2}
   m_IsPrefabParent: 0

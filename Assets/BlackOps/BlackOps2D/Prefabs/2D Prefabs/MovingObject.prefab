@@ -256,6 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03467fc2829c946fd89794972deaf88f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackParticleEffect: {fileID: 100004, guid: 167f4aba711471d46a4a5bf4b4d11bae, type: 2}
 --- !u!114 &114000012681012308
 MonoBehaviour:
   m_ObjectHideFlags: 1

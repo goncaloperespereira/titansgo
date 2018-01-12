@@ -25,6 +25,9 @@ public class AttackRequest : AIRequest{
 		} else {
 			//Debug.Log (attackAI.gameObject.name + " Attack");
 
+			attackAI.AttackParticleEffect ();
+			attackAI.attackParticleEffect.transform.position = Vector3.MoveTowards(attackAI.attackParticleEffect.transform.position, objectToAttack.transform.position, 10000 * Time.deltaTime);
+
 			attackFinishTimestamp = Time.time + MovingObjectStats.GetAttackActionTimeForObject (attackAI.gameObject);
 			MovingObjectStats.StartAttackColldownForObject(attackAI.gameObject);
 		}
@@ -77,6 +80,8 @@ public class AttackRequest : AIRequest{
 
 public class AttackAI : MonoBehaviour {
 
+	public GameObject attackParticleEffect;
+
 	//private Attack attack;
 	private EvaluateVisibleObjects visibleObjectsPrioritiser;
 
@@ -99,6 +104,13 @@ public class AttackAI : MonoBehaviour {
 
 		AttackRequest request = new AttackRequest (1.0f, this, visibleObjectsPrioritiser.GetBestTargetInSight());
 		return request;
+
+	}
+
+	public void AttackParticleEffect()
+	{
+		Instantiate (attackParticleEffect, transform.position, transform.rotation);
+		attackParticleEffect.layer = this.gameObject.layer;
 
 	}
 }
