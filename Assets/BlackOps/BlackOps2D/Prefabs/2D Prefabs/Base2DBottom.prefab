@@ -42,6 +42,13 @@ GameObject:
   - component: {fileID: 114738970299249562}
   - component: {fileID: 114568034061097014}
   - component: {fileID: 61453985761728760}
+  - component: {fileID: 114132575769825566}
+  - component: {fileID: 114579127136131484}
+  - component: {fileID: 114352941714502226}
+  - component: {fileID: 114864351827534402}
+  - component: {fileID: 114061179899524628}
+  - component: {fileID: 114427249648255562}
+  - component: {fileID: 50531950469093874}
   m_Layer: 9
   m_Name: Base2DBottom
   m_TagString: Untagged
@@ -129,6 +136,26 @@ Transform:
   m_Father: {fileID: 4338285789816208}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50531950469093874
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1358443513811060}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &58066608990761656
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -169,6 +196,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.6, y: 2.890819}
   m_EdgeRadius: 0
+--- !u!114 &114061179899524628
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1358443513811060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 232d4133447d64e79b66af379b42d88c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectToFollow: {fileID: 0}
+--- !u!114 &114132575769825566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1358443513811060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0363d09eb78e74fec8503805d7b29bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 1
+  maxHealth: 100
+  attackActionTime: 0.5
+  attackCooldown: 2
+  attackDamage: 30
+  movementVelocity: 3
+  attackRange: 1
 --- !u!114 &114155834980743086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -212,6 +269,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114352941714502226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1358443513811060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b320c57ca6ba4c1e90c03a6fec39ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectWithLowestScore: {fileID: 0}
 --- !u!114 &114391997903878030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -244,6 +313,19 @@ MonoBehaviour:
     i15: 43
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &114427249648255562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1358443513811060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03467fc2829c946fd89794972deaf88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackParticleEffect: {fileID: 0}
+  particleEffect: {fileID: 0}
 --- !u!114 &114452230002305966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -295,6 +377,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136d17aa0cb864934b4573cec02c4811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114579127136131484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1358443513811060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 175b41a0afc20422daef6f76eb9ef074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flipPriorities: 0
 --- !u!114 &114738970299249562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -310,6 +404,8 @@ MonoBehaviour:
   healthBar: {fileID: 224484172701784048}
   destroyOnDeath: 1
   Player: {fileID: 0}
+  takeDamageParticleEffect: {fileID: 0}
+  dieParticleEffect: {fileID: 0}
 --- !u!114 &114811722912278450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -352,6 +448,19 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &114864351827534402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1358443513811060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf89ded969e8a44efbc2a5db5d6e49f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAITick: 3
+  spawner: {fileID: 0}
 --- !u!212 &212440708285700274
 SpriteRenderer:
   m_ObjectHideFlags: 1

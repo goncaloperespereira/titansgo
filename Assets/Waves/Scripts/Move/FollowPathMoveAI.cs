@@ -28,11 +28,11 @@ public class FollowPathMoveAI : MoveAI {
 }
 
 public class FollowGameObjectRequest : MoveRequest{
-	private float squaredMinDistance;
+	//private float squaredMinDistance;
 	private float minDistance;
 	public FollowGameObjectRequest(float priority, MoveAI ai, float distance): base(priority, ai) {
 		minDistance = distance;
-		squaredMinDistance = distance*distance;
+		//squaredMinDistance = distance*distance;
 	}
 
 	private GameObject _targetObject;

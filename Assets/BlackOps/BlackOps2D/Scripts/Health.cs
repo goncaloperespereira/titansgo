@@ -36,8 +36,6 @@ public class Health : NetworkBehaviour
 		{
 			spawnPoints = FindObjectsOfType<NetworkStartPosition> ();
 		}
-
-
 	}
 	
 	// Update is called once per frame
@@ -94,6 +92,8 @@ public class Health : NetworkBehaviour
 	void OnChangeHealth(int currentHealth)
 	{
 		healthBar.sizeDelta = new Vector2 (((float)currentHealth)/((float)maxHealth)*healthBarWidth, healthBar.sizeDelta.y);
+		healthBar.transform.parent.gameObject.SetActive (currentHealth != maxHealth);
+			
 	}
 
 	[ClientRpc]

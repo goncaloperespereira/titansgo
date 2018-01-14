@@ -19,17 +19,13 @@ public class AttackRequest : AIRequest{
 		
 	float attackFinishTimestamp;
 	float attackColldownTimestamp;
-	float attackParticleEffectVelocity;
 	void StartAttack() {
 		if (MovingObjectStats.IsInAttackCooldown(attackAI.gameObject)) {
-			return;
+			//Debug.Log (attackAI.gameObject.name + " In cooldown");
 		} else {
-			Debug.Log (attackAI.gameObject.name + " Attack");
+			//Debug.Log (attackAI.gameObject.name + " Attack");
 
-			attackAI.AttackParticleEffect ();
-			attackParticleEffectVelocity = Vector3.Distance (objectToAttack.transform.position, attackAI.gameObject.transform.position) / MovingObjectStats.GetAttackActionTimeForObject (attackAI.gameObject);
-			attackAI.particleEffect.transform.position = Vector3.MoveTowards(attackAI.particleEffect.transform.position, objectToAttack.transform.position, attackParticleEffectVelocity * Time.deltaTime);
-
+			attackAI.AttackParticleEffect (objectToAttack);
 			attackFinishTimestamp = Time.time + MovingObjectStats.GetAttackActionTimeForObject (attackAI.gameObject);
 			MovingObjectStats.StartAttackColldownForObject(attackAI.gameObject);
 		}
@@ -43,24 +39,14 @@ public class AttackRequest : AIRequest{
 			fgoRequest.StartAction ();
 		}
 	}
-
-	public bool damageDelt = false;
+		
 	public override bool TickAction() {
 		if (fgoRequest == null) {
 			if (Time.time > attackFinishTimestamp) {
-				if (!damageDelt) {
-					MovingObjectStats.DealDamageFromObjectToObject (attackAI.gameObject, objectToAttack);
-					GameObject.Destroy (attackAI.particleEffect);
-					damageDelt = true;
-					Debug.Log ("Damage done Mothafuckas!");
-				} 
-				return true;
-			}else {
-				attackAI.particleEffect.transform.position = Vector3.MoveTowards(attackAI.particleEffect.transform.position, objectToAttack.transform.position, attackParticleEffectVelocity * Time.deltaTime);
-				return true;
+				return false;
 			}
 
-			return false;
+			return true;
 		} else {
 			LineOfSight sight = attackAI.gameObject.GetComponentInChildren<LineOfSight> ();
 			if (fgoRequest.DistanceToObject () > sight.radius)
@@ -116,9 +102,16 @@ public class AttackAI : MonoBehaviour {
 
 	public GameObject particleEffect;
 
-	public void AttackParticleEffect()
+	public void AttackParticleEffect(GameObject objectToAttack)
 	{
 		particleEffect = Instantiate (attackParticleEffect, transform.position, transform.rotation);
+		Shot shot = particleEffect.AddComponent<Shot>();
+
+		float attackParticleEffectVelocity = Vector3.Distance (objectToAttack.transform.position, gameObject.transform.position) / MovingObjectStats.GetAttackActionTimeForObject (gameObject);
+		shot.Startup (objectToAttack.transform, attackParticleEffectVelocity, () => { 
+			MovingObjectStats.DealDamageFromObjectToObject (gameObject, objectToAttack);
+			Destroy(shot.gameObject);
+		});
 		attackParticleEffect.layer = this.gameObject.layer;
 
 	}
