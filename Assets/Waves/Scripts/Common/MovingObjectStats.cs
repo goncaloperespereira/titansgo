@@ -12,6 +12,12 @@ public class MovingObjectStats : NetworkBehaviour {
 	public float movementVelocity = 3;
 	public float attackRange = 1;
 
+	private MovingObjectStats _redirectStats = null;
+
+	public void SetSedirectStats(MovingObjectStats redirect) {
+		_redirectStats = redirect;
+	}
+
 	//public float health;
 	void Start() {
 		//health = maxHealth;
@@ -19,7 +25,7 @@ public class MovingObjectStats : NetworkBehaviour {
 
 
 	public static float GetAttackRangeForObject(GameObject obj) {
-		MovingObjectStats objectStats = obj.GetComponent<MovingObjectStats> ();
+		MovingObjectStats objectStats = getMovingObjectStats (obj);
 		if (objectStats != null) {
 			return objectStats.attackRange;
 		} 
@@ -27,8 +33,26 @@ public class MovingObjectStats : NetworkBehaviour {
 		return 1.0f;
 	}
 
+	public static float GetObjectPriority(GameObject obj) {
+		MovingObjectStats objectStats = getMovingObjectStats (obj);
+		if (objectStats != null) {
+			return objectStats.priority;
+		} 
+
+		return 1.0f;
+	}
+
+	public static MovingObjectStats getMovingObjectStats(GameObject obj) {
+		MovingObjectStats stats = obj.GetComponent<MovingObjectStats> ();
+		if (stats != null && stats._redirectStats != null) {
+			stats = stats._redirectStats;
+		}
+
+		return stats;
+	}
+
 	public static float GetAttackActionTimeForObject(GameObject obj) {
-		MovingObjectStats objectStats = obj.GetComponent<MovingObjectStats> ();
+		MovingObjectStats objectStats = getMovingObjectStats (obj);
 		if (objectStats != null) {
 			return objectStats.attackActionTime;
 		} 
@@ -37,7 +61,7 @@ public class MovingObjectStats : NetworkBehaviour {
 	}
 
 	public static float GetAttackColldownForObject(GameObject obj) {
-		MovingObjectStats objectStats = obj.GetComponent<MovingObjectStats> ();
+		MovingObjectStats objectStats = getMovingObjectStats (obj);
 		if (objectStats != null) {
 			return objectStats.attackCooldown;
 		} 
@@ -46,7 +70,7 @@ public class MovingObjectStats : NetworkBehaviour {
 	}
 
 	public static int GetAttackDamageForObject(GameObject obj) {
-		MovingObjectStats objectStats = obj.GetComponent<MovingObjectStats> ();
+		MovingObjectStats objectStats = getMovingObjectStats (obj);
 		if (objectStats != null) {
 			return objectStats.attackDamage;
 		} 
@@ -55,7 +79,7 @@ public class MovingObjectStats : NetworkBehaviour {
 	}
 
 	public static float GetMovementVelocityForObject(GameObject obj) {
-		MovingObjectStats objectStats = obj.GetComponent<MovingObjectStats> ();
+		MovingObjectStats objectStats = getMovingObjectStats (obj);
 		if (objectStats != null) {
 			return objectStats.movementVelocity;
 		} 
@@ -64,7 +88,7 @@ public class MovingObjectStats : NetworkBehaviour {
 	}
 
 	public static int GetMaxHealthForObject(GameObject obj) {
-		MovingObjectStats objectStats = obj.GetComponent<MovingObjectStats> ();
+		MovingObjectStats objectStats = getMovingObjectStats (obj);
 		if (objectStats != null) {
 			return objectStats.maxHealth;
 		} 
@@ -75,14 +99,14 @@ public class MovingObjectStats : NetworkBehaviour {
 	// attack cooldown
 	private float attackCooldownTimestamp = 0;
 	public static void StartAttackColldownForObject(GameObject obj) {
-		MovingObjectStats objectStats = obj.GetComponent<MovingObjectStats> ();
+		MovingObjectStats objectStats = getMovingObjectStats (obj);
 		if (objectStats != null) {
 			objectStats.attackCooldownTimestamp = Time.time + objectStats.attackCooldown;
 		} 
 	}
 
 	public static bool IsInAttackCooldown(GameObject obj) {
-		MovingObjectStats objectStats = obj.GetComponent<MovingObjectStats> ();
+		MovingObjectStats objectStats = getMovingObjectStats (obj);
 		if (objectStats != null) {
 			return objectStats.attackCooldownTimestamp > Time.time;
 		}
@@ -101,7 +125,7 @@ public class MovingObjectStats : NetworkBehaviour {
 	}
 
 	public static bool DealDamageFromObjectToObject(GameObject attackingObject, GameObject damagedObject) {
-		MovingObjectStats damagedObj = damagedObject.GetComponent<MovingObjectStats> ();
+		MovingObjectStats damagedObj = getMovingObjectStats (damagedObject);
 		if (damagedObj != null) {
 			int damage = MovingObjectStats.GetAttackDamageForObject(attackingObject);
 			return damagedObj.DealDamage (damage);

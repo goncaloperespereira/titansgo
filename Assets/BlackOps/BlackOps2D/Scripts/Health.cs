@@ -27,7 +27,7 @@ public class Health : NetworkBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		healthBarWidth =healthBar.sizeDelta.x;
+		healthBarWidth = healthBar.sizeDelta.x;
 
 		maxHealth = MovingObjectStats.GetMaxHealthForObject (gameObject);
 		currentHealth = maxHealth;
@@ -77,6 +77,7 @@ public class Health : NetworkBehaviour
 					Helpers.DestroyObject (gameObject);
 				} else 
 				{
+					maxHealth = MovingObjectStats.GetMaxHealthForObject (gameObject);
 					currentHealth = maxHealth;
 
 					RpcRespawn ();
@@ -91,9 +92,9 @@ public class Health : NetworkBehaviour
 
 	void OnChangeHealth(int currentHealth)
 	{
+		maxHealth = MovingObjectStats.GetMaxHealthForObject (gameObject);
 		healthBar.sizeDelta = new Vector2 (((float)currentHealth)/((float)maxHealth)*healthBarWidth, healthBar.sizeDelta.y);
 		healthBar.transform.parent.gameObject.SetActive (currentHealth != maxHealth);
-			
 	}
 
 	[ClientRpc]

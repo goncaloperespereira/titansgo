@@ -6,20 +6,6 @@ using UnityEngine.Networking;
 public class GolemSpawner : NetworkBehaviour {
 
 	public GameObject golemPrefab;
-	//public int numberOfGolems;
-
-
-	// Use this for initialization
-	void Start () 
-	{
-
-	}
-
-	// Update is called once per frame
-	void Update () 
-	{
-
-	}
 
 	public override void OnStartServer()
 	{

@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour {
 	[HideInInspector]
 	public WaveSpawn spawner;
 
-	private float movementVelocity = 2;
+	//private float movementVelocity = 2;
 	
 	// Interface
 	public void SetMovementTarget(Vector2 target) {
@@ -43,8 +43,6 @@ public class Movement : MonoBehaviour {
 			renderer.material.color = Color.blue;
 		}
 
-		movementVelocity = MovingObjectStats.GetMovementVelocityForObject (gameObject);
-
 		StartCoroutine (Move ());
 	}
 
@@ -65,6 +63,7 @@ public class Movement : MonoBehaviour {
 
 	private void MoveInTargetDirection(Vector2 direction) {
 		direction.Normalize ();
+		float movementVelocity = MovingObjectStats.GetMovementVelocityForObject (gameObject);
 		body.velocity = new Vector2 (direction.x * movementVelocity, direction.y * movementVelocity);
 	}
 }

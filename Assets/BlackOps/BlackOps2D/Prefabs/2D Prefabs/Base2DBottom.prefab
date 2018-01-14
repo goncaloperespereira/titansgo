@@ -115,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1358443513811060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 43.7, y: -41.725277, z: 0}
+  m_LocalPosition: {x: -82.25134, y: -15.32585, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 2.5}
   m_Children:
   - {fileID: 4848123637871616}
@@ -143,14 +143,14 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1358443513811060}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -220,12 +220,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 1
-  maxHealth: 100
+  maxHealth: 2000
   attackActionTime: 0.5
-  attackCooldown: 2
-  attackDamage: 30
-  movementVelocity: 3
-  attackRange: 1
+  attackCooldown: 1
+  attackDamage: 150
+  movementVelocity: 0
+  attackRange: 25
 --- !u!114 &114155834980743086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -543,7 +543,7 @@ RectTransform:
   m_GameObject: {fileID: 1836393332672446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 1, z: 1}
   m_Children:
   - {fileID: 224484172701784048}
   m_Father: {fileID: 224391532589816100}
@@ -570,7 +570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -5, y: 2.2}
+  m_AnchoredPosition: {x: -4.77, y: 2.2}
   m_SizeDelta: {x: 957, y: 424}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!224 &224484172701784048

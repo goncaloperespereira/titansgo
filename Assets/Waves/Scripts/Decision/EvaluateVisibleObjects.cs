@@ -17,12 +17,13 @@ public class EvaluateVisibleObjects : MonoBehaviour {
 	}
 
 	float GetObjectPriorityStat(GameObject obj) {
-		MovingObjectStats objectStats = GetComponent<MovingObjectStats> ();
+		return MovingObjectStats.GetObjectPriority (obj);
+		/*MovingObjectStats objectStats = GetComponent<MovingObjectStats> ();
 		if (objectStats != null) {
 			return objectStats.priority;
 		} 
 
-		return 1.0f;
+		return 1.0f;*/
 	}
 	
 	// Update is called once per frame
