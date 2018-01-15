@@ -65,5 +65,6 @@ public class Movement : MonoBehaviour {
 		direction.Normalize ();
 		float movementVelocity = MovingObjectStats.GetMovementVelocityForObject (gameObject);
 		body.velocity = new Vector2 (direction.x * movementVelocity, direction.y * movementVelocity);
+
 	}
 }

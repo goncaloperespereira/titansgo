@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 114675164407905352}
   - component: {fileID: 114174376298577416}
   - component: {fileID: 114144616604121882}
+  - component: {fileID: 95716144903351164}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -188,7 +189,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1805675129168990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.785004, y: -27.019505, z: -5.335984}
+  m_LocalPosition: {x: 22.46673, y: 36.861145, z: -5.335984}
   m_LocalScale: {x: 6.5, y: 6.5, z: 6.5}
   m_Children:
   - {fileID: 4109769080546324}
@@ -274,7 +275,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.6, y: 0.78}
+    oldSize: {x: 0.92, y: 0.72}
     newSize: {x: 0.6, y: 0.78}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -283,6 +284,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.59606624, y: 0.36302716}
   m_EdgeRadius: 0
+--- !u!95 &95716144903351164
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1805675129168990}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0a4751f13551247d38814226d3345242, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114023393942768718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -574,15 +592,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawn: {fileID: 0}
-  bulletPrefab: {fileID: 1833643820871158, guid: 152dde84b080a4447b858af52dec0250,
-    type: 2}
+  bulletPrefab: {fileID: 0}
   shootButton: {fileID: 0}
   hopButton: {fileID: 0}
   moveSpeed: 20
   canMove: 1
   hopped: 0
-  gobzillaSprite: {fileID: 21300000, guid: 2ae7c747380a34f2da6a8b5f839ce164, type: 3}
-  goblinSprite: {fileID: 21300000, guid: 940004833a03e49be8e1bfb691ef973c, type: 3}
+  gobzillaSprite: {fileID: 21300012, guid: 518c35d753d4746ef8c97417761209da, type: 3}
+  goblinSprite: {fileID: 21300036, guid: 518c35d753d4746ef8c97417761209da, type: 3}
   hopSprite: {fileID: 21300000, guid: b3ea2bd87e456404dbed905103f496ab, type: 3}
   unhopSprite: {fileID: 21300000, guid: 2960e3441a3944859b20c1b4b479d43a, type: 3}
   Golem_1: {fileID: 0}
@@ -592,6 +609,9 @@ MonoBehaviour:
   hoppedGolem1: 0
   hoppedGolem2: 0
   touchTarget: {fileID: 1883143959106090}
+  isWalkingDown: 0
+  isWalkingUp: 0
+  isIdle: 0
 --- !u!114 &114883613990272916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -636,7 +656,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 940004833a03e49be8e1bfb691ef973c, type: 3}
+  m_Sprite: {fileID: 21300036, guid: 518c35d753d4746ef8c97417761209da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

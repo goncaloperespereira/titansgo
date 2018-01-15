@@ -3172,60 +3172,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114051213150121002, guid: 5b016bbce1d00478abbe73807e3af340,
-        type: 2}
-      propertyPath: m_LocalPlayerAuthority
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114383828729517380, guid: 5b016bbce1d00478abbe73807e3af340,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114383828729517380, guid: 5b016bbce1d00478abbe73807e3af340,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20412197093769312, guid: 5b016bbce1d00478abbe73807e3af340,
-        type: 2}
-      propertyPath: orthographic size
-      value: 42.273155
-      objectReference: {fileID: 0}
-    - target: {fileID: 20412197093769312, guid: 5b016bbce1d00478abbe73807e3af340,
-        type: 2}
-      propertyPath: m_ClearFlags
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 20412197093769312, guid: 5b016bbce1d00478abbe73807e3af340,
-        type: 2}
-      propertyPath: m_HDR
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20412197093769312, guid: 5b016bbce1d00478abbe73807e3af340,
-        type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 20412197093769312, guid: 5b016bbce1d00478abbe73807e3af340,
-        type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 20412197093769312, guid: 5b016bbce1d00478abbe73807e3af340,
-        type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 20412197093769312, guid: 5b016bbce1d00478abbe73807e3af340,
-        type: 2}
-      propertyPath: m_BackGroundColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114051213150121002, guid: 5b016bbce1d00478abbe73807e3af340, type: 2}
-    - {fileID: 114383828729517380, guid: 5b016bbce1d00478abbe73807e3af340, type: 2}
-    - {fileID: 114526786298346156, guid: 5b016bbce1d00478abbe73807e3af340, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b016bbce1d00478abbe73807e3af340, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &581493552
@@ -8633,8 +8580,6 @@ MonoBehaviour:
   - {fileID: 1358443513811060, guid: c622ec018b1164ba1b0e3ac2ca69592b, type: 2}
   - {fileID: 1358443513811060, guid: cfc92b2e3d11a42e2930a923b3f8cd13, type: 2}
   - {fileID: 1261596589980050, guid: be2025a22fddf433699a9fca95168189, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:

@@ -48,6 +48,12 @@ public class PlayerController2D : NetworkBehaviour
 
 	public GameObject touchTarget;
 
+	Animator anim;
+	public bool isWalkingDown;
+	public bool isWalkingUp;
+	public bool isIdle;
+
+
 	void Awake()	
 	{
 		GameObject[] spawnPoint = GameObject.FindGameObjectsWithTag ("spawnPoint");
@@ -65,6 +71,7 @@ public class PlayerController2D : NetworkBehaviour
 	private void Start()
 	{
 		targetPos = transform.position;
+		anim = GetComponent<Animator>();
 	}
 
 	void Update()
@@ -74,6 +81,7 @@ public class PlayerController2D : NetworkBehaviour
 		{
 			return;
 		}
+			
 
 		if (EventSystem.current.IsPointerOverGameObject() /* || EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)*/)
 		{
@@ -92,11 +100,47 @@ public class PlayerController2D : NetworkBehaviour
 			if((Vector2)transform.position != targetPos)
 			{
 				touchTarget.transform.position = targetPos;
+				if (targetPos.y < transform.position.y)
+				{
+					isWalkingDown = true;
+					isWalkingUp = false;
+					isIdle = false;
+					anim.SetBool("isWalkingDown", isWalkingDown);
+					anim.SetBool("isWalkingUp", isWalkingUp);
+					anim.SetBool ("isIdle", isIdle);
+				}
+
+				if (targetPos.y > transform.position.y)
+				{
+					isWalkingDown = false;
+					isWalkingUp = true;
+					isIdle = false;
+
+					anim.SetBool("isWalkingUp", isWalkingUp);
+					anim.SetBool("isWalkingDown", isWalkingDown);
+					anim.SetBool ("isIdle", isIdle);
+				}
 			}
+
+
 		}
 
-		if (!Input.GetMouseButton (0) || Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Ended && canMove == true) {
+		if (!Input.GetMouseButton (0) || Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Ended && canMove == true) 
+		{
 			touchTarget.transform.localPosition = new Vector3();
+
+		}
+
+		if(Input.GetMouseButtonUp(0))
+		{
+			isIdle = true;
+			isWalkingDown = false;
+			isWalkingUp = false;
+
+			anim.SetBool ("isIdle", isIdle);
+			anim.SetBool("isWalkingUp", isWalkingUp);
+			anim.SetBool("isWalkingDown", isWalkingDown);
+
 		}
 
 		dontAllowHopOn2 ();
@@ -238,7 +282,7 @@ public class PlayerController2D : NetworkBehaviour
 	public override void OnStartLocalPlayer()	
 	{
 		//GetComponent<SpriteRenderer> ().color = Color.blue;
-		Camera.main.GetComponent<CameraScript> ().setTarget (gameObject.transform);
+		//Camera.main.GetComponent<CameraScript> ().setTarget (gameObject.transform);
 
 
 		shootButton = GameObject.Find ("ButtonA");
