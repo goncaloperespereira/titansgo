@@ -8521,7 +8521,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1582908932}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.7, y: -25.8, z: 0}
+  m_LocalPosition: {x: -20.7, y: -25.8, z: -27}
   m_LocalScale: {x: 9.75272, y: 9.752729, z: 9.752729}
   m_Children: []
   m_Father: {fileID: 1279337635}
@@ -10521,7 +10521,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1908066339}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.7, y: 14.3, z: 0}
+  m_LocalPosition: {x: -20.7, y: 14.3, z: -27}
   m_LocalScale: {x: 9.75272, y: 9.752729, z: 9.752729}
   m_Children: []
   m_Father: {fileID: 1279337635}
@@ -11487,84 +11487,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &1996183206 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1913007594750864, guid: 5b016bbce1d00478abbe73807e3af340,
-    type: 2}
-  m_PrefabInternal: {fileID: 579722640}
---- !u!114 &1996183211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1996183206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e1690a60b3854e91a4a8171bb727183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  smoothTimeY: 0.05
-  smoothTimeX: 0.05
-  bounds: 1
-  minCameraPos: {x: -33, y: -17, z: -10}
-  maxCameraPos: {x: 33, y: 17, z: -10}
-  playerTransform: {fileID: 4364719574377702, guid: 1d236ea52db394f13b569b747368ad11,
-    type: 2}
-  depth: -20
---- !u!114 &1996183212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1996183206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
-  m_SendInterval: 0.1
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
---- !u!114 &1996183213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1996183206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 91
-    i1: 1
-    i2: 107
-    i3: 188
-    i4: 225
-    i5: 208
-    i6: 4
-    i7: 120
-    i8: 171
-    i9: 190
-    i10: 115
-    i11: 128
-    i12: 126
-    i13: 58
-    i14: 243
-    i15: 64
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!1 &2006832674
 GameObject:
   m_ObjectHideFlags: 0
