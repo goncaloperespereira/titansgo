@@ -49,9 +49,10 @@ GameObject:
   - component: {fileID: 114061179899524628}
   - component: {fileID: 114427249648255562}
   - component: {fileID: 50531950469093874}
+  - component: {fileID: 114018295404543112}
   m_Layer: 9
   m_Name: Base2DBottom
-  m_TagString: Untagged
+  m_TagString: Base2DBottom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,6 +197,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.6, y: 2.890819}
   m_EdgeRadius: 0
+--- !u!114 &114018295404543112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1358443513811060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095ab5f53d830496fb4151d9a9bccdee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
 --- !u!114 &114061179899524628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -220,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 1
-  maxHealth: 2000
+  maxHealth: 1000
   attackActionTime: 0.5
   attackCooldown: 1
   attackDamage: 150
@@ -324,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03467fc2829c946fd89794972deaf88f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackParticleEffect: {fileID: 0}
+  attackParticleEffect: {fileID: 100004, guid: 167f4aba711471d46a4a5bf4b4d11bae, type: 2}
   particleEffect: {fileID: 0}
 --- !u!114 &114452230002305966
 MonoBehaviour:
@@ -404,8 +417,9 @@ MonoBehaviour:
   healthBar: {fileID: 224484172701784048}
   destroyOnDeath: 1
   Player: {fileID: 0}
-  takeDamageParticleEffect: {fileID: 0}
-  dieParticleEffect: {fileID: 0}
+  takeDamageParticleEffect: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb,
+    type: 2}
+  dieParticleEffect: {fileID: 100004, guid: cb708bfa0fc041541853a80130a63844, type: 2}
 --- !u!114 &114811722912278450
 MonoBehaviour:
   m_ObjectHideFlags: 1

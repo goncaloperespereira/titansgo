@@ -53,6 +53,7 @@ public class Health : NetworkBehaviour
 			Player.GetComponent<PlayerController2D> ().canHopGolem2 = false;
 			Helpers.DestroyObject (gameObject);
 		}
+			
 	}
 		
 	public bool TakeDamage (int amount) 
@@ -65,7 +66,8 @@ public class Health : NetworkBehaviour
 
 		Instantiate (takeDamageParticleEffect, transform.position, transform.rotation);
 
-		if (currentHealth <= 0) {
+		if (currentHealth <= 0) 
+		{
 
 			Instantiate (dieParticleEffect, transform.position, transform.rotation);
 

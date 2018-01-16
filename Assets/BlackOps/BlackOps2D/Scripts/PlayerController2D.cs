@@ -49,9 +49,14 @@ public class PlayerController2D : NetworkBehaviour
 	public GameObject touchTarget;
 
 	Animator anim;
+
+
+	float angleMovement;
 	public bool isWalkingDown;
 	public bool isWalkingUp;
 	public bool isIdle;
+	public bool isWalkingLeft;
+	public bool isWalkingRight;
 
 
 	void Awake()	
@@ -81,7 +86,7 @@ public class PlayerController2D : NetworkBehaviour
 		{
 			return;
 		}
-			
+
 
 		if (EventSystem.current.IsPointerOverGameObject() /* || EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)*/)
 		{
@@ -96,28 +101,75 @@ public class PlayerController2D : NetworkBehaviour
 		{
 			targetPos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+			Vector3 targetDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+			angleMovement = Vector2.Angle (targetDir, transform.up);
+			Debug.Log (angleMovement);
 				
 			if((Vector2)transform.position != targetPos)
 			{
 				touchTarget.transform.position = targetPos;
-				if (targetPos.y < transform.position.y)
+
+				//walking left animation
+				if ((angleMovement > 70 && angleMovement < 120) && targetPos.x < transform.position.x)
 				{
-					isWalkingDown = true;
+					isWalkingDown = false;
 					isWalkingUp = false;
+					isWalkingLeft = true;
+					isWalkingRight = false;
 					isIdle = false;
+
 					anim.SetBool("isWalkingDown", isWalkingDown);
 					anim.SetBool("isWalkingUp", isWalkingUp);
+					anim.SetBool ("isWalkingLeft", isWalkingLeft);
+					anim.SetBool ("isWalkingRight", isWalkingRight);
 					anim.SetBool ("isIdle", isIdle);
 				}
 
-				if (targetPos.y > transform.position.y)
+				//walking right animation
+				if ((angleMovement > 70 && angleMovement < 120) && targetPos.x > transform.position.x)
+				{
+					isWalkingDown = false;
+					isWalkingUp = false;
+					isWalkingLeft = false;
+					isWalkingRight = true;
+					isIdle = false;
+
+					anim.SetBool("isWalkingDown", isWalkingDown);
+					anim.SetBool("isWalkingUp", isWalkingUp);
+					anim.SetBool ("isWalkingLeft", isWalkingLeft);
+					anim.SetBool ("isWalkingRight", isWalkingRight);
+					anim.SetBool ("isIdle", isIdle);
+				}
+
+				//walking down animation
+				if (angleMovement > 120 && targetPos.y < transform.position.y)
+				{
+					isWalkingDown = true;
+					isWalkingUp = false;
+					isWalkingLeft = false;
+					isWalkingRight = false;
+					isIdle = false;
+
+					anim.SetBool("isWalkingDown", isWalkingDown);
+					anim.SetBool("isWalkingUp", isWalkingUp);
+					anim.SetBool ("isWalkingLeft", isWalkingLeft);
+					anim.SetBool ("isWalkingRight", isWalkingRight);
+					anim.SetBool ("isIdle", isIdle);
+				}
+
+				//walking up animation
+				if (angleMovement < 70 && targetPos.y > transform.position.y)
 				{
 					isWalkingDown = false;
 					isWalkingUp = true;
+					isWalkingLeft = false;
+					isWalkingRight = false;
 					isIdle = false;
 
-					anim.SetBool("isWalkingUp", isWalkingUp);
 					anim.SetBool("isWalkingDown", isWalkingDown);
+					anim.SetBool("isWalkingUp", isWalkingUp);
+					anim.SetBool ("isWalkingLeft", isWalkingLeft);
+					anim.SetBool ("isWalkingRight", isWalkingRight);
 					anim.SetBool ("isIdle", isIdle);
 				}
 			}
@@ -136,10 +188,15 @@ public class PlayerController2D : NetworkBehaviour
 			isIdle = true;
 			isWalkingDown = false;
 			isWalkingUp = false;
+			isWalkingLeft = false;
+			isWalkingRight = false;
 
 			anim.SetBool ("isIdle", isIdle);
 			anim.SetBool("isWalkingUp", isWalkingUp);
 			anim.SetBool("isWalkingDown", isWalkingDown);
+			anim.SetBool ("isWalkingRight", isWalkingRight);
+			anim.SetBool ("isWalkingLeft", isWalkingLeft);
+
 
 		}
 
@@ -190,6 +247,10 @@ public class PlayerController2D : NetworkBehaviour
 
 						golem.SetActive (false);
 
+						//change animator to the combined player animator
+						anim.runtimeAnimatorController = Resources.Load ("GobzillaController") as RuntimeAnimatorController;
+				
+
 						hopButton.GetComponent<Button> ().interactable = true;
 
 						hoppedGolem1 = true;
@@ -218,6 +279,9 @@ public class PlayerController2D : NetworkBehaviour
 
 						golem.SetActive (false);
 
+						//change animator to the combined player animator
+						anim.runtimeAnimatorController = Resources.Load ("GobzillaController") as RuntimeAnimatorController;
+
 						hopButton.GetComponent<Button> ().interactable = true;
 
 						hoppedGolem2 = true;
@@ -243,6 +307,10 @@ public class PlayerController2D : NetworkBehaviour
 			gameObject.GetComponent<Health> ().currentHealth = storeTempHealth;
 
 			hopButton.GetComponent<Button> ().interactable = false;
+
+			//change animator to the player animator
+			anim.runtimeAnimatorController = Resources.Load ("PlayerController") as RuntimeAnimatorController;
+
 
 			hoppedGolem1 = false;
 			hoppedGolem2 = false;

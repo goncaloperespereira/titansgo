@@ -12,6 +12,9 @@ TagManager:
   - Golem_2
   - Referencial
   - spawnPoint
+  - Base2DBottom
+  - Base2DTop
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX

@@ -40,7 +40,7 @@ public class Movement : MonoBehaviour {
 		// To be able to distinguish the troops
 		if (gameObject.layer == LayerMask.NameToLayer ("TopTeamUnits")) {
 			SpriteRenderer renderer = gameObject.GetComponentInChildren<SpriteRenderer> ();
-			renderer.material.color = Color.blue;
+			//renderer.material.color = Color.blue;
 		}
 
 		StartCoroutine (Move ());
