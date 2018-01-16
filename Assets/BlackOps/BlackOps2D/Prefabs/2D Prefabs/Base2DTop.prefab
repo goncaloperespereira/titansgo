@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2822e1b6a6154ef1ad83d1876993487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 100
+  currentHealth: 1000
   healthBar: {fileID: 224484172701784048}
   destroyOnDeath: 1
   Player: {fileID: 0}
